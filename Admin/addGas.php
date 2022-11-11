@@ -26,6 +26,9 @@ if(mysqli_connect_errno()){
 
 <head>
     <title>Adding Gas Cylinder</title>
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script> 
+  
+<script>tinymce.init({selector:'textarea'});</script>
     
 </head>
 <body bgcolor="#ff9a00">
@@ -64,7 +67,7 @@ if(mysqli_connect_errno()){
                          $category_name = $category['category_name'];
                                   
                                   
-                         echo "<option value='category_id'>$category_name</option>";
+                         echo "<option value='$category_id'>$category_name</option>";
                                   
                           }
                          
@@ -78,8 +81,7 @@ if(mysqli_connect_errno()){
                     Gas Cylinder company
                 </td>
                 <td colspan="18px">
-
-                <select name="gas_weight">
+                <select name="gas_company">
                         <option>Choose gas company</option>  
                         <?php
                          $get_products = "select * from products"; //sqlquerry
@@ -93,7 +95,7 @@ if(mysqli_connect_errno()){
                          $gas_name = $product['gas_name'];
                                   
                                   
-                         echo "<option>$gas_name</option>";
+                         echo "<option value='$gas_id'>$gas_name</option>";
                                   
                           }
                          
@@ -107,7 +109,7 @@ if(mysqli_connect_errno()){
                     Gas Cylinder image
                 </td>
                 <td colspan="18px">
-                    <input type="text" name="gas_name"/>
+                    <input type="file" name="gas_image"/>
                 </td>
             </tr>
             <tr>
@@ -115,7 +117,7 @@ if(mysqli_connect_errno()){
                     Gas Cylinder price
                 </td>
                 <td colspan="18px">
-                    <input type="text" name="gas_name"/>
+                    <input type="text" name="gas_price"/>
                 </td>
             </tr>
             <tr>
@@ -123,7 +125,7 @@ if(mysqli_connect_errno()){
                     Gas Cylinder description
                 </td>
                 <td colspan="18px">
-                    <input type="text" name="gas_name"/>
+                    <textarea name="gas_description" cols="30" rows="5"></textarea>
                 </td>
             </tr>
             <tr>
@@ -131,7 +133,7 @@ if(mysqli_connect_errno()){
                     Gas Cylinder keywords
                 </td>
                 <td colspan="18px">
-                    <input type="text" name="gas_name"/>
+                    <input type="text" name="gas_keywords"/>
 
                 </td>
             </tr>
