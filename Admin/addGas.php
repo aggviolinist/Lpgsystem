@@ -77,9 +77,7 @@ if(mysqli_connect_errno()){
                 
             </tr>
             <tr>
-                <td style=font-size:20px;>
-                    Gas Cylinder company
-                </td>
+                <td style=font-size:20px;>Gas Cylinder company</td>
                 <td colspan="18px">
                 <select name="gas_company">
                         <option>Choose gas company</option>  
