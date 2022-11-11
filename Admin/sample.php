@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <?php
-include("includes/db.php");
 include("functions/functions.php");
 
 ?> 
@@ -11,7 +10,7 @@ include("functions/functions.php");
 </head>
 <body bgcolor="#ff9a00">
     <div>
-    <form action="addGas.php" enctype="multipart/form-data"><!--inserts videos,images in a form -->
+    <form action="addGas.php"method="get" enctype="multipart/form-data"><!--inserts videos,images in a form -->
         <table align="center" width="1500" bgcolor="#CDB99C">
             <tr align="center"><!--table rows -->
 

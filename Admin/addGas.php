@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <?php
-include("includes/db.php");
-include("functions/functions.php");
 $connection=mysqli_connect("localhost","root","","LPGSYSTEM");
 
 
@@ -55,7 +53,21 @@ if(mysqli_connect_errno()){
                     <select name="gas_weight">
                         <option>Choose gas weight</option>  
                         <?php
-                        getWeight();
+                         $get_category = "select * from Category"; //sqlquerry
+
+                         $run_category = mysqli_query($connection,$get_category); //running querry
+             
+                                         
+                         while($category=mysqli_fetch_array($run_category)) //retrieves all records in the database, so we are selectig the database and running it
+                        {
+                         $category_id = $category['category_id'];
+                         $category_name = $category['category_name'];
+                                  
+                                  
+                         echo "<option>$category_name</option>";
+                                  
+                          }
+                         
                         ?>                    
                     </select>         
                  </td>

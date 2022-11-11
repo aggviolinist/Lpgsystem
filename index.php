@@ -52,7 +52,7 @@
 
 
         </div>
-        <div id= "content_area" >This is the content area <form><?php getWeight();?></form></div> <!--content area div -->
+        <div id= "content_area" >This is the content area</div> <!--content area div -->
 
       </div>
          <div id ="footer" style=padding-top:30px;>Kelvin Mulandi &copy; All Rights Reserved</div> <!--footer div -->
