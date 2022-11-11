@@ -82,18 +82,18 @@ if(mysqli_connect_errno()){
                 <select name="gas_company">
                         <option>Choose gas company</option>  
                         <?php
-                         $get_products = "select * from products"; //sqlquerry
+                         $get_gas = "select * from brand"; //sqlquerry
 
-                         $run_products = mysqli_query($connection,$get_products); //running querry
+                         $run_gas = mysqli_query($connection,$get_gas); //running querry
              
                                          
-                         while($product=mysqli_fetch_array($run_products)) //retrieves all records in the database, so we are selectig the database and running it
+                         while($gas=mysqli_fetch_array($run_gas)) //retrieves all records in the database, so we are selectig the database and running it
                         {
-                         $gas_id = $product['gas_id'];
-                         $gas_name = $product['gas_name'];
+                         $brand_id = $gas['brand_id'];
+                         $brand_name = $gas['brand_name'];
                                   
                                   
-                         echo "<option value='$gas_id'>$gas_name</option>";
+                         echo "<option value='$brand_id'>$brand_name</option>";
                                   
                           }
                          
