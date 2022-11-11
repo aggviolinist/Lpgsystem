@@ -51,7 +51,7 @@ if(mysqli_connect_errno()){
                 <td style=font-size:20px;>Gas Cylinder weight</td>
                  <td>
                     <select name="gas_weight">
-                        <option>Choose gas company</option>  
+                        <option>Choose gas weight</option>  
                         <?php
                          $get_category = "select * from Category"; //sqlquerry
 
@@ -80,7 +80,7 @@ if(mysqli_connect_errno()){
                 <td colspan="18px">
 
                 <select name="gas_weight">
-                        <option>Choose gas weight</option>  
+                        <option>Choose gas company</option>  
                         <?php
                          $get_products = "select * from products"; //sqlquerry
 
