@@ -64,7 +64,7 @@ if(mysqli_connect_errno()){
                          $category_name = $category['category_name'];
                                   
                                   
-                         echo "<option>$category_name</option>";
+                         echo "<option value='category_id'>$category_name</option>";
                                   
                           }
                          
@@ -82,18 +82,18 @@ if(mysqli_connect_errno()){
                 <select name="gas_weight">
                         <option>Choose gas weight</option>  
                         <?php
-                         $get_category = "select * from Category"; //sqlquerry
+                         $get_products = "select * from products"; //sqlquerry
 
-                         $run_category = mysqli_query($connection,$get_category); //running querry
+                         $run_products = mysqli_query($connection,$get_products); //running querry
              
                                          
-                         while($category=mysqli_fetch_array($run_category)) //retrieves all records in the database, so we are selectig the database and running it
+                         while($product=mysqli_fetch_array($run_products)) //retrieves all records in the database, so we are selectig the database and running it
                         {
-                         $category_id = $category['category_id'];
-                         $category_name = $category['category_name'];
+                         $gas_id = $product['gas_id'];
+                         $gas_name = $product['gas_name'];
                                   
                                   
-                         echo "<option>$category_name</option>";
+                         echo "<option>$gas_name</option>";
                                   
                           }
                          
