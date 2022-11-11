@@ -78,7 +78,28 @@ if(mysqli_connect_errno()){
                     Gas Cylinder company
                 </td>
                 <td colspan="18px">
-                    <input type="text" name="gas_name"/>
+
+                <select name="gas_weight">
+                        <option>Choose gas weight</option>  
+                        <?php
+                         $get_category = "select * from Category"; //sqlquerry
+
+                         $run_category = mysqli_query($connection,$get_category); //running querry
+             
+                                         
+                         while($category=mysqli_fetch_array($run_category)) //retrieves all records in the database, so we are selectig the database and running it
+                        {
+                         $category_id = $category['category_id'];
+                         $category_name = $category['category_name'];
+                                  
+                                  
+                         echo "<option>$category_name</option>";
+                                  
+                          }
+                         
+                        ?>                    
+                    </select>    
+                    
                 </td>
             </tr>
             <tr>
