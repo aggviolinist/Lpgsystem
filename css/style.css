@@ -1,0 +1,173 @@
+/* http://meyerweb.com/eric/tools/css/reset code/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+body /*body is an element of the html tag*/
+{
+    background:	#F0F0F0;
+}
+
+.main_wrapper
+{
+    width: auto;
+    height: auto;
+    margin: auto; /*center aligned into the page*/
+
+
+}
+.header_wrapper
+{
+    width: 4000px;
+    height: 200px;
+    margin: auto;
+            
+}
+#lpg
+{
+    float: left;
+
+}
+#logo
+{
+    float: none;
+    height: 250px;
+    width: 200px;
+    padding-left: 1200px;
+}
+#welcome
+{
+    float: none;
+}
+.content_wrapper
+{
+    width: 1900px;
+    
+    margin: auto;
+    background: #ADD8E6;
+}
+#content_area
+{
+    width: 500px;
+    height: 1000px;
+
+    
+    background: #ADD8E6;
+    text-align: top;
+    
+
+}
+#sidebar
+{
+    width: 300px;
+   
+    background: #12e193;
+    float: none;
+}
+#footer
+{
+    width: 1900px;
+    height: 100px;
+    background: palevioletred;
+    text-align: center;
+
+ position: fixed;
+  left: 0;
+  bottom: 0;
+
+}
+.menubar
+{
+    width: 1500px;
+    height: 50px;
+    background:#F0F0F0;
+    color: black;
+     
+}
+#menu
+{
+    padding: 0;
+    margin: 0;
+    line-height: 50px;
+    float: left;
+
+}
+#menu li { /*Styling the li tags */
+    list-style: none; /*removing the bullets on ordered list */
+    display: inline; /*Displaying the menu bar in a line */
+}
+#menu a 
+{ /*Styling the anchor tag*/
+    text-decoration: none; /*Removing the underline on the menu bar items*/
+
+    color: green;
+    padding: 25px;
+    margin: 5px;
+    font-size: 20px;
+    font-family: sans-serif
+
+}
+#menu a:hover
+{
+    color:chartreuse;font-weight: bolder/*how thick or thin characters in text should be displayed*/;
+    text-decoration: underline;
+}
+
+#form
+{
+    
+    padding:15px;
+    line-height: 0px;
+}
+#siddy
+{
+    font-size: 20px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    padding:0px;
+    
+}
+#siddy li
+{ /*styling the list specifically */
+    list-style: none;
+
+}
+#siddy a 
+{
+    list-style: none;
+    padding: 10px;
+    margin: 5px;
+    text-align: center;
+    text-decoration: none;
+
+}
+#siddy a:hover
+{
+    color: red;
+    font-weight: bolder;
+    text-decoration: dotted;
+}
+
