@@ -26,9 +26,10 @@ if(mysqli_connect_errno()){
 
 <head>
     <title>Adding Gas Cylinder</title>
-    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script> 
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script> <!--script for tinymce  --> 
   
-<script>tinymce.init({selector:'textarea'});</script>
+<script>tinymce.init({selector:'textarea'});</script> <!-- targets text area field and makes it look good -->
+
     
 </head>
 <body bgcolor="#ff9a00">
@@ -46,7 +47,7 @@ if(mysqli_connect_errno()){
                     Gas Cylinder Name 
                 </td>
                 <td colspan="18px">
-                    <input type="text" name="gas_name"/>
+                    <input type="text" name="gas_name" required/>
                 
                 </td>             
             </tr>
@@ -107,7 +108,7 @@ if(mysqli_connect_errno()){
                     Gas Cylinder image
                 </td>
                 <td colspan="18px">
-                    <input type="file" name="gas_image"/>
+                    <input type="file" name="gas_image"/> <!--file type for image -->
                 </td>
             </tr>
             <tr>
@@ -123,7 +124,8 @@ if(mysqli_connect_errno()){
                     Gas Cylinder description
                 </td>
                 <td colspan="18px">
-                    <textarea name="gas_description" cols="30" rows="5"></textarea>
+
+                    <textarea name="gas_description" cols="20" rows="3"></textarea><!--text area with columns and rows i.e size of the box -->
                 </td>
             </tr>
             <tr>
@@ -131,7 +133,7 @@ if(mysqli_connect_errno()){
                     Gas Cylinder keywords
                 </td>
                 <td colspan="18px">
-                    <input type="text" name="gas_keywords"/>
+                    <input type="text" name="gas_keywords" size="80"/>
 
                 </td>
             </tr>
@@ -147,3 +149,34 @@ if(mysqli_connect_errno()){
 
 </body>
 </html>
+
+
+<?php
+
+if(isset($_POST['insert_post'])){
+
+    //how to get text from the form
+
+    $gas_name = $_POST['gas_name'];
+    $gas_weight = $_POST['gas_weight'];
+    $gas_company = $_POST['gas_company'];
+    $gas_price = $_POST['gas_price'];
+    $gas_description = $_POST['gas_description'];
+    $gas_keywords = $_POST['gas_keywords'];
+
+
+    //how to get images from the form 
+    
+
+    $gas_image = $_FILES['gas_image']['name'];//the field we want i.e name, we dont want size,type
+    $gas_image_tmp = $_FILES['gas_images']['tmp_name'];//we need temporary name for system
+
+    $add_gas = "";
+
+
+
+}
+
+
+
+?>
