@@ -33,7 +33,7 @@ $connection=mysqli_connect("localhost","root","","LPGSYSTEM");
             <tr>
                 <td style=font-size:20px;>Gas Cylinder weight</td>
                  <td>
-                    <select name="gas_weight" required>
+                    <select name="gas_weight">
                         <option>Choose gas weight</option>  
                         <?php
                          $get_category = "select * from weight"; //sqlquerry
@@ -59,7 +59,7 @@ $connection=mysqli_connect("localhost","root","","LPGSYSTEM");
             <tr>
                 <td style=font-size:20px;>Gas Cylinder company</td>
                 <td colspan="18px">
-                <select name="gas_company" required> 
+                <select name="gas_company"> 
                         <option>Choose gas company</option>  
                         <?php
                          $get_gas = "select * from brand"; //sqlquerry
@@ -87,7 +87,7 @@ $connection=mysqli_connect("localhost","root","","LPGSYSTEM");
                     Gas Cylinder image
                 </td>
                 <td colspan="18px">
-                    <input type="file" name="gas_image" required/> <!--file type for image -->
+                    <input type="file" name="gas_image"/> <!--file type for image -->
                 </td>
             </tr>
             <tr>
