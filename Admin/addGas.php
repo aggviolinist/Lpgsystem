@@ -137,8 +137,8 @@ if(isset($_POST['add_gas_post'])){
     //how to get text from the form
 
     $gas_name = $_POST['gas_name'];
-    $gas_weight = $_POST['gas_weight'];
     $gas_company = $_POST['gas_company'];
+    $gas_weight = $_POST['gas_weight'];  
     $gas_price = $_POST['gas_price'];
     $gas_description = $_POST['gas_description'];
     $gas_keywords = $_POST['gas_keywords'];
@@ -149,9 +149,9 @@ if(isset($_POST['add_gas_post'])){
     $gas_image = $_FILES['gas_image']['name'];//the field we want i.e name, we dont want size,type
     $gas_image_tmp = $_FILES['gas_images']['tmp_name'];//we need temporary name for system
 
-    move_uploaded_file($gas_image_tmp,"gas_images/$gas_image"); //temporary name file in server,folder,variable used above
+    move_uploaded_file($gas_image_tmp,"gas_image/$gas_image"); //temporary name file in server,folder,variable used above
 
-    $add_gas = "insert into products(gas_name,gas_brand,gas_category,gas_price,gas_description,gas_image,gas_keywords) values('$gas_name','$gas_weight','$gas_brand','$gas_price','$gas_description','$gas_image','$gas_keywords')";
+    $add_gas = "insert into products(gas_name,gas_company,gas_weight,gas_price,gas_description,gas_image,gas_keywords) values('$gas_name','$gas_company','$gas_weight','$gas_price','$gas_description','$gas_image','$gas_keywords')";
     $insert_gas = mysqli_query($connection,$add_gas); //inserting data in DB 
 
     if($insert_gas){
