@@ -54,10 +54,10 @@ if(mysqli_connect_errno()){
             <tr>
                 <td style=font-size:20px;>Gas Cylinder weight</td>
                  <td>
-                    <select name="gas_weight">
+                    <select name="gas_weight" required>
                         <option>Choose gas weight</option>  
                         <?php
-                         $get_category = "select * from Category"; //sqlquerry
+                         $get_category = "select * from weight"; //sqlquerry
 
                          $run_category = mysqli_query($connection,$get_category); //running querry
              
@@ -80,7 +80,7 @@ if(mysqli_connect_errno()){
             <tr>
                 <td style=font-size:20px;>Gas Cylinder company</td>
                 <td colspan="18px">
-                <select name="gas_company">
+                <select name="gas_company" required> 
                         <option>Choose gas company</option>  
                         <?php
                          $get_gas = "select * from brand"; //sqlquerry
@@ -108,7 +108,7 @@ if(mysqli_connect_errno()){
                     Gas Cylinder image
                 </td>
                 <td colspan="18px">
-                    <input type="file" name="gas_image"/> <!--file type for image -->
+                    <input type="file" name="gas_image" required/> <!--file type for image -->
                 </td>
             </tr>
             <tr>
@@ -116,7 +116,7 @@ if(mysqli_connect_errno()){
                     Gas Cylinder price
                 </td>
                 <td colspan="18px">
-                    <input type="text" name="gas_price"/>
+                    <input type="text" name="gas_price" required />
                 </td>
             </tr>
             <tr>
@@ -133,13 +133,13 @@ if(mysqli_connect_errno()){
                     Gas Cylinder keywords
                 </td>
                 <td colspan="18px">
-                    <input type="text" name="gas_keywords" size="80"/>
+                    <input type="text" name="gas_keywords" size="80" required/>
 
                 </td>
             </tr>
             <tr align="center">
                <td colspan="7">
-                <input type="submit" name="insert_post" value="Add Gas"/>
+                <input type="submit" name="add_gas_post" value="Add Gas"/>
                </td>
             </tr>
         
@@ -153,7 +153,7 @@ if(mysqli_connect_errno()){
 
 <?php
 
-if(isset($_POST['insert_post'])){
+if(isset($_POST['add_gas_post'])){
 
     //how to get text from the form
 
@@ -167,11 +167,21 @@ if(isset($_POST['insert_post'])){
 
     //how to get images from the form 
     
-
     $gas_image = $_FILES['gas_image']['name'];//the field we want i.e name, we dont want size,type
     $gas_image_tmp = $_FILES['gas_images']['tmp_name'];//we need temporary name for system
 
-    $add_gas = "";
+    move_uploaded_file($gas_image_tmp,"gas_images/$gas_image"); //temporary name file in server,folder,variable used above
+
+    $add_gas = "insert into products(gas_name,gas_brand,gas_category,gas_price,gas_description,gas_image,gas_keywords) values('$gas_name','$gas_weight','$gas_brand','$gas_price','$gas_description','$gas_image','$gas_keywords')";
+    $insert_gas = mysqli_query($connection,$add_gas); //inserting data in DB 
+
+    if($insert_gas){
+        echo "<script>alert('gas has been added successfully to the database')</script>"; //alert notification
+        echo "<script>window.open('addGas.php','_self')</script>"; //refresh the page by redirecting the page to the add gas page if there is any double entry on table
+    }
+
+
+
 
 
 

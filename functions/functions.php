@@ -5,7 +5,7 @@ $connection=mysqli_connect("localhost","root","","LPGSYSTEM"); //servername,user
 function getCategory() //Getting the category straight from the database
 {
     global $connection;
-    $get_category = "select * from Category"; //sqlquerry
+    $get_category = "select * from weight"; //sqlquerry
 
     $run_category = mysqli_query($connection,$get_category); //running querry
 
@@ -24,7 +24,7 @@ function getWeight()
 {  
             global $connection;
 
-            $get_category = "select * from Category"; //sqlquerry
+            $get_category = "select * from weight"; //sqlquerry
 
             $run_category = mysqli_query($connection,$get_category); //running querry
 
