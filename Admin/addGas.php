@@ -1,27 +1,6 @@
 <!DOCTYPE html>
 <?php
 $connection=mysqli_connect("localhost","root","","LPGSYSTEM");
-
-
-/**$host = "127.0.0.1"; //IP of your database
-$userName = "root"; //Username for database login
-$userPass = ""; //Password associated with the username
-$database = "LPGSYSTEM"; //Your database name
-
-$connectQuery = mysqli_connect($host,$userName,$userPass,$database);
-
-if(mysqli_connect_errno()){
-    echo mysqli_connect_error();
-    exit();
-}else{
-    $selectQuery = "SELECT * FROM Category";
-    $result = mysqli_query($connectQuery,$selectQuery);
-    if(mysqli_num_rows($result) > 0){
-    }else{
-        $msg = "No Record found";
-    }
-}**/
-
 ?> 
 
 <head>
@@ -179,6 +158,10 @@ if(isset($_POST['add_gas_post'])){
         echo "<script>alert('gas has been added successfully to the database')</script>"; //alert notification
         echo "<script>window.open('addGas.php','_self')</script>"; //refresh the page by redirecting the page to the add gas page if there is any double entry on table
     }
+    else{
+        echo "<script>alert('gas has not been added successfully to the database')</script>";
+    }
+    
 
 
 
