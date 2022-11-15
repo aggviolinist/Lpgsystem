@@ -147,7 +147,7 @@ if(isset($_POST['add_gas_post'])){
     //how to get images from the form 
     
     $gas_image = $_FILES['gas_image']['name'];//the field we want i.e name, we dont want size,type
-    $gas_image_tmp = $_FILES['gas_images']['tmp_name'];//we need temporary name for system
+    $gas_image_tmp = $_FILES['gas_image']['tmp_name'];//we need temporary name for system
 
     move_uploaded_file($gas_image_tmp,"gas_image/$gas_image"); //temporary name file in server,folder,variable used above
 
