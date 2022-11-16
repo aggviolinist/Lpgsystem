@@ -95,7 +95,7 @@ $connection=mysqli_connect("localhost","root","","LPGSYSTEM");
                     Gas Cylinder price
                 </td>
                 <td colspan="18px">
-                    <input type="text" name="gas_price" required />
+                    <input type="number" name="gas_price" required />
                 </td>
             </tr>
             <tr>
