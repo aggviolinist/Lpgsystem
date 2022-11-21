@@ -55,7 +55,7 @@ function display(){
 
 
 
-    $display ="select * from products order by RAND() LIMIT 0,6"; //selecting 6 products to randomly show on the home page
+    $display ="select * from products order by RAND() LIMIT 0,8"; //selecting 6 products to randomly show on the home page
 
     $display_run = mysqli_query($connection,$display);
     
@@ -70,23 +70,12 @@ function display(){
 
         echo "<div id='dislay_onegas'>
         <h2>$display_name</h2>
-       <img style= border:1px solid black src = 'images/$display_image' width='250' height='250'/>
+       <img style='border:3px solid #FFE5B4' src = 'images/$display_image' width='250' height='250'/>
         <!-- we are getting the images folder and getting the images in the database saved as a local variable --> 
         <p><b>$display_price $curr</b></p> 
         <br>
-         <a href = 'index.php'>$cart  Add to cart</a>
-
-         <style>
-         border_img {
-           
-           padding: 18px 18px 2px 18px;
-           border: 8px solid #999999;
-           margin: 50px;
-        
-         }
-       </style>
-       
-        
+        <a href = 'description.php?page_id=$display_id' style='float:left;text-decoration:none; color: green'>Description</a>
+         <a style='text-decoration:none; float:none;color: blue' href = 'index.php?page_id=$display_id'>$cart  Add to cart</a>  
         </div>";
 
 

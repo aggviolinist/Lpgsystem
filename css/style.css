@@ -171,7 +171,8 @@ body /*body is an element of the html tag*/
     text-align: center;
     margin-left:30px;
     margin-bottom: 10px;
-    column-count: 3;
+    column-count: 5;
+   
 }
 #display_onegas img
 {
@@ -184,5 +185,6 @@ body /*body is an element of the html tag*/
     border-color:  #FFFF00;
     border: 20px;
     padding: 10px;
+    
 }
 #border img{ border: 1px solid black; }
