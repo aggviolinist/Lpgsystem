@@ -187,3 +187,9 @@ body /*body is an element of the html tag*/
     padding: 10px;
     
 }
+#shopping_cart
+{
+    width: 800px;
+    height: 50px;
+    background-color: lawngreen;
+}

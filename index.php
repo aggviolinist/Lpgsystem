@@ -32,6 +32,12 @@
 </div> 
 
      <div class="content_wrapper">
+        <div id="shopping_cart">
+
+
+
+
+        </div>
 
         <div id="sidebar">  <!--side div -->
         <div>
