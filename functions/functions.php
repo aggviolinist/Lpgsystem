@@ -74,7 +74,7 @@ function display(){
         <!-- we are getting the images folder and getting the images in the database saved as a local variable --> 
         <p><b>$display_price $curr</b></p> 
         <br>
-        <a href = 'description.php?page_id=$display_id' style='float:left;text-decoration:none; color: green'>Description</a>
+        <a href = 'description.php?page_id=$display_id' style='float:left;text-decoration:none; color: green'>Gas Description</a>
          <a style='text-decoration:none; float:none;color: blue' href = 'index.php?page_id=$display_id'>$cart  Add to cart</a>  
         </div>";
 
