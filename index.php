@@ -52,7 +52,18 @@
 
 
         </div>
-        <div id= "content_area" >This is the content area</div> <!--content area div -->
+        <div id= "content_area" ><!--content area div -->
+        <div id="display"> <!--calling the display function --->
+            <?php
+            display();
+            ?>
+
+
+         </div>
+
+
+
+        </div> 
 
       </div>
          <div id ="footer" style=padding-top:30px;>Kelvin Mulandi &copy; All Rights Reserved</div> <!--footer div -->

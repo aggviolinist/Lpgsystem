@@ -65,17 +65,14 @@ body /*body is an element of the html tag*/
 }
 .content_wrapper
 {
-    width: 1900px;
-    
+    width: 2000px;   
     margin: auto;
     background: #ADD8E6;
 }
 #content_area
 {
     width: 500px;
-    height: 1000px;
-
-    
+    height: 1500px;    
     background: #ADD8E6;
     text-align: top;
     
@@ -83,8 +80,7 @@ body /*body is an element of the html tag*/
 }
 #sidebar
 {
-    width: 300px;
-   
+    width: 300px;  
     background: #12e193;
     float: none;
 }
@@ -95,9 +91,7 @@ body /*body is an element of the html tag*/
     background: palevioletred;
     text-align: center;
 
- position: fixed;
-  left: 0;
-  bottom: 0;
+    
 
 }
 .menubar
@@ -171,3 +165,24 @@ body /*body is an element of the html tag*/
     text-decoration: dotted;
 }
 
+#display 
+{
+    width: 800px;
+    text-align: center;
+    margin-left:30px;
+    margin-bottom: 10px;
+    column-count: 3;
+}
+#display_onegas img
+{
+    float: left;
+    margin-left: 20px;
+    padding-left: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-right: 20px;
+    border-color:  #FFFF00;
+    border: 20px;
+    padding: 10px;
+}
+#border img{ border: 1px solid black; }
