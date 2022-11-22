@@ -37,7 +37,7 @@ body /*body is an element of the html tag*/
     width: auto;
     height: auto;
     margin: auto; /*center aligned into the page*/
-
+    background-color: azure;
 
 }
 .header_wrapper
@@ -72,7 +72,7 @@ body /*body is an element of the html tag*/
 #content_area
 {
     width: 500px;
-    height: 3000px;    
+    height: 1700px;    
     background: #ADD8E6;
     text-align: top;
     align-items: center;
