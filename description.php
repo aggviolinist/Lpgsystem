@@ -63,7 +63,9 @@
         <div id= "content_area" ><!--content area div -->
         <div id="display"> <!--calling the display function --->
             <?php
-            display();
+            //display();
+
+            
             ?>
 
 

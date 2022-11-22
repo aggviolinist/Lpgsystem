@@ -48,7 +48,7 @@ function getWeight()
                         
 }
 
-function display(){
+function display_index(){
     global $connection; //connection
     $curr = "shillings";
     $cart = "<i class='fa-solid fa-cart-shopping'></i>";
@@ -83,6 +83,18 @@ function display(){
     }
 
 
+}
+function display_description()
+{
+if(isset($_GET['display_id'])){ //get gas id from DB when the url is clicked
+
+    $get_id = $_GET['display_id']; //variable get method to get variable from url
+
+$display = "select * from products where display_id = '$get_id'"; //select everything from products if the id coming is same as the gas id so we get all entries of a specific gas
+
+
+
+}
 }
 
 
