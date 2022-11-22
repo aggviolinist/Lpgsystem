@@ -71,8 +71,8 @@ body /*body is an element of the html tag*/
 }
 #content_area
 {
-    width: 400px;
-    height: 1500px;    
+    width: 500px;
+    height: 3000px;    
     background: #ADD8E6;
     text-align: top;
     align-items: center;
@@ -87,11 +87,12 @@ body /*body is an element of the html tag*/
 }
 #footer
 {
-    width: 1900px;
+    width: 2000px;
     height: 100px;
     background: palevioletred;
     text-align: center;
-    padding-left: 1200px;
+    position: relative;
+    padding-bottom: 0px;
 
     
 
@@ -173,15 +174,15 @@ body /*body is an element of the html tag*/
     text-align: center;
     margin-left:30px;
     margin-bottom: 10px;
-    column-count: 5;
    
 }
 #display_onegas img
 {
     float: left;
-    margin-left: 200px;
-    border: 20px;
+    margin: 20px;
+    border: 150px;
     padding: 10px;
+    
     
 }
 #shopping_cart

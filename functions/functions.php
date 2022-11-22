@@ -70,11 +70,11 @@ function display(){
 
         echo "<div id='dislay_onegas'>
         <h2>$display_name</h2>
-       <img style='border:3px solid #FFE5B4' src = 'images/$display_image' width='250' height='250'/>
+       <img style='border:3px solid #FFE5B4; margin:30px;' src = 'images/$display_image' width='250' height='250'/>
         <!-- we are getting the images folder and getting the images in the database saved as a local variable --> 
         <p><b>$display_price $curr</b></p> 
         <br>
-        <a href = 'description.php?page_id=$display_id' style='float:left;text-decoration:none; color: green'>Gas Description</a>
+        <a href = 'description.php?page_id=$display_id' style='text-decoration:none; color: green'>Gas Description</a>
          <a style='text-decoration:none; float:none;color: blue' href = 'index.php?page_id=$display_id'>$cart  Add to cart</a>  
         </div>";
 
