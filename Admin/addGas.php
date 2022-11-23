@@ -161,15 +161,5 @@ if(isset($_POST['add_gas_post'])){
     else{
         echo "<script>alert('gas has not been added successfully to the database')</script>";
     }
-    
-
-
-
-
-
-
 }
-
-
-
 ?>
