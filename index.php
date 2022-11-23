@@ -1,6 +1,10 @@
 <DOCTYPE html>
  <?php
  include("functions/functions.php"); //includes specific folders and files into html
+
+ ini_set("display_errors","1");
+ ini_set("display_startup_errors","1");
+ error_reporting(E_ALL);
  ?>
     <head>
     <title>BOOK A CYLINDER</title>
@@ -12,7 +16,7 @@
 <div class= "main_wrapper"> <!--css class-->
     <div class = "header_wrapper"> <!--header div -->
     <img id= "lpg" src = "images/dial.png" />  <!--image source-->
-    <img id= "logo"src = "images/run.jpg"/>
+    <img style='margin-left: 250px;'id= "logo"src = "images/run.jpg"/>
     </div>
 </div>
 <div class="menubar"> <!--menu div -->
@@ -25,14 +29,14 @@
 </ul>
 <div id="form">
     <form method="get" action="gas.php" enctype="mutlipart/form-data"><!--Multitype  used when getting images from DB-->
-    <input type="text" name="user_text" placeholder="what are you looking for?"/>
+    <input style= 'margin-left:220px;' type="text" name="user_text" placeholder="what are you looking for?"/>
     <input type="submit" name="search" value="find gas cylinder" />
     </form> 
 </div>
 </div> 
 
      <div class="content_wrapper">
-        <div style="width: 800px; height: 40px;background-color: lawngreen; padding-left: 750px; margin-left:50px;"><!--shopping cart -->
+        <div style="width: 800px; height: 40px;background-color: lawngreen; padding-left: 700px; margin:right:100px; margin-left:250px;"><!--shopping cart -->
           <span style="float:left; text-align: center; font-size: 18px; padding:5px; line-height:40px">
           Welcome User!
           </span>
@@ -63,7 +67,7 @@
         <div id= "content_area" ><!--content area div -->
         <div id="display"> <!--calling the display function --->
             <?php
-            display();
+            display_index();
             ?>
 
 
