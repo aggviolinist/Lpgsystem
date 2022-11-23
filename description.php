@@ -12,7 +12,7 @@
 <div class= "main_wrapper"> <!--css class-->
     <div class = "header_wrapper"> <!--header div -->
     <img id= "lpg" src = "images/dial.png" />  <!--image source-->
-    <img id= "logo"src = "images/run.jpg"/>
+    <img style='margin-left: 250px;'id= "logo"src = "images/run.jpg"/>
     </div>
 </div>
 <div class="menubar"> <!--menu div -->
@@ -25,7 +25,7 @@
 </ul>
 <div id="form">
     <form method="get" action="gas.php" enctype="mutlipart/form-data"><!--Multitype  used when getting images from DB-->
-    <input type="text" name="user_text" placeholder="what are you looking for?"/>
+    <input style= 'margin-left:220px;' type="text" name="user_text" placeholder="what are you looking for?"/>
     <input type="submit" name="search" value="find gas cylinder" />
     </form> 
 </div>
