@@ -12,7 +12,7 @@
 <div class= "main_wrapper"> <!--css class-->
     <div class = "header_wrapper"> <!--header div -->
     <img id= "lpg" src = "images/dial.png" />  <!--image source-->
-    <img style='margin-left: 250px;'id= "logo"src = "images/run.jpg"/>
+    <img style='margin-left:0px;'id= "logo"src = "images/run.jpg"/>
     </div>
 </div>
 <div class="menubar"> <!--menu div -->
@@ -65,6 +65,8 @@
             <?php
             //display();
             //display_description()
+            $curr = "shillings";
+            $cart = "<i class='fa-solid fa-cart-shopping'></i>";  
             if(isset($_GET['page_id'])){ //get gas id from DB when the url is clicked
 
                 $get_id = $_GET['page_id']; //variable get method to get variable from url
@@ -78,7 +80,7 @@
                 $display_name = $fetch_row['gas_name'];
                 $display_weight = $fetch_row['gas_weight'];
                 $display_price = $fetch_row['gas_price'];
-                $display_image = $fetch_row['gas_iamge'];
+                $display_image = $fetch_row['gas_image'];
                 $display_description = $fetch_row['gas_description'];
             
                 echo "<div id='dislay_onegas'>
@@ -86,6 +88,8 @@
                    <img style='border:3px solid #FFE5B4; margin:30px;' src = 'images/$display_image' width='400' height='300'/>
                     <!-- we are getting the images folder and getting the images in the database saved as a local variable --> 
                     <p><b>$display_price $curr</b></p> 
+                    <br>
+                    <p><em>$display_description</em></p>
                     <br>
                     <a href = 'index.php'style='text-decoration:none; color: green'>Back</a>
                      <a style='text-decoration:none; float:none;color: blue' href = 'index.php?page_id=$display_id'>$cart  Add to cart</a>  
@@ -109,7 +113,7 @@
         </div> 
 
       </div>
-         <div id ="footer" style=padding-top:30px;>Kelvin Mulandi &copy; All Rights Reserved</div> <!--footer div -->
+         <div style=''id ="footer" style=padding-top:30px;>Kelvin Mulandi &copy; All Rights Reserved</div> <!--footer div -->
 
 
 
