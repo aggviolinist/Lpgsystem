@@ -86,9 +86,9 @@ function display_index(){
 }
 function display_description()
 {
-if(isset($_GET['display_id'])){ //get gas id from DB line 77
+if(isset($_GET['page_id'])){ //get gas id from DB line 77
 
-    $get_id = $_GET['display_id']; //variable get method to get variable from url address bar
+    $get_id = $_GET['page_id']; //variable get method to get variable from url address bar
 
 $display = "select * from products where gas_id = '$get_id'"; //select everything from products if the id coming is same as the gas id so we get all entries of a specific gas
 $display_run = mysqli_query($connection,$display);
