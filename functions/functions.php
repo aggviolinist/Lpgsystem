@@ -49,7 +49,14 @@ function getWeight()
 }
 
 function display_index(){
+
+    if(!isset($_GET['weight'])){//if the weight is not active
+        if(!isset($_GET['company'])){//if the company of the gas is not active
+
     global $connection; //connection
+
+
+
     $curr = "shillings";
     $cart = "<i class='fa-solid fa-cart-shopping'></i>";
 
@@ -77,12 +84,10 @@ function display_index(){
         <a href = 'description.php?page_id=$display_id' style='text-decoration:none; color: green'>Gas Description</a>
          <a style='text-decoration:none; float:none;color: blue' href = 'index.php?page_id=$display_id'>$cart  Add to cart</a>  
         </div>";
-
-
-        
     }
 
-
+    }
+}
 }
 function display_description()
 {
@@ -115,6 +120,19 @@ while($fetch_row=mysqli_fetch_array($display_run))
 }
 }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 ?>
 
 </html>
