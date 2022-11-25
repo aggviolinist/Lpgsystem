@@ -8,25 +8,25 @@
 //Connection with Database
 $connection=mysqli_connect("localhost","root","","LPGSYSTEM"); //servername,username,password,DBname
 
-function getCategory() //Getting the category straight from the database
+function getWeight() //Getting the category straight from the database
 {
     global $connection;
-    $get_category = "select * from weight"; //sqlquerry
+    $get_weight = "select * from weight"; //sqlquerry
 
-    $run_category = mysqli_query($connection,$get_category); //running querry
+    $run_weight = mysqli_query($connection,$get_weight); //running querry
 
-    while($category=mysqli_fetch_array($run_category)) //retrieves all records in the database, so we are selectig the database and running it
+    while($weight=mysqli_fetch_array($run_weight)) //retrieves all records in the database, so we are selectig the database and running it
     {
-        $category_id = $category['category_id'];
-        $category_name = $category['category_name'];
+        $weight_id = $weight['weight_id'];
+        $cylinder_weight = $weight['cylinder_weight'];
 
 
-        echo "<li><a href= '#'>$category_name</a></li>";
+        echo "<li><a href= 'index.php'>$cylinder_weight</a></li>";
 
     }
 }
-
-function getWeight()
+/** 
+function getWeightNull()
 {  
             global $connection;
 
@@ -47,6 +47,7 @@ function getWeight()
             
                         
 }
+**/
 
 function display_index(){
 
@@ -120,19 +121,6 @@ while($fetch_row=mysqli_fetch_array($display_run))
 }
 }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 ?>
 
 </html>

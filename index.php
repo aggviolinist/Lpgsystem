@@ -50,7 +50,7 @@
             <ul id="siddy">
             <li><i class="fa-solid fa-house-user"></i><a href="#">Dashboard</a></li><br>
             <li><i class="fa-solid fa-cart-shopping"></i><a href="#">Cart</a></li><br>
-            <li><i class="fa-solid fa-calendar-check"></i><a href="#">Book cylinder</a><li padding-right:10px;><?php getCategory();?></li></li><br> 
+            <li><i class="fa-solid fa-calendar-check"></i><a href="#">Book cylinder</a><li padding-right:10px;><?php getWeight();?></li></li><br> 
             <li><i class="fa-solid fa-user"></i><a href="#">My account</a></li><br>
             <li><i class="fa-solid fa-power-off"></i><a href="#">Log out</a></li>
 
