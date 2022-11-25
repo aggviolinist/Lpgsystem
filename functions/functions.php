@@ -113,13 +113,8 @@ while($fetch_row=mysqli_fetch_array($display_run))
         </div>";
 
 }
-
-
-
 }
 }
-
-
 ?>
 
 </html>

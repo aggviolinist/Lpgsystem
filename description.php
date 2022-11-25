@@ -113,7 +113,7 @@
         </div> 
 
       </div>
-         <div style=''id ="footer" style=padding-top:30px;>Kelvin Mulandi &copy; All Rights Reserved</div> <!--footer div -->
+         <div style=''id ="footer" style=padding-top:0px;>Kelvin Mulandi &copy; All Rights Reserved</div> <!--footer div -->
 
 
 
