@@ -21,11 +21,11 @@
 </div>
 <div class="menubar"> <!--menu div -->
 <ul id="menu">
-    <li><a href="#">Home</a></li>
-    <li><a href="#">Book Cylinder</a></li>
-    <li><a href="#">Cart</a></li>
-    <li><a href="#">Log in</a></li>
-    <li><a href="#">Sign up</a></li>
+    <li><a href="index.php">Home</a></li>
+    <li><a href="allgases.php">Book Cylinder</a></li>
+    <li><a href="cart.php">Cart</a></li>
+    <li><a href="login.php">Log in</a></li>
+    <li><a href="signup.php">Sign up</a></li>
 </ul>
 <div id="form">
     <form method="get" action="gas.php" enctype="mutlipart/form-data"><!--Multitype  used when getting images from DB-->
@@ -48,10 +48,10 @@
         <div id="sidebar">  <!--side div -->
         <div>
             <ul id="siddy">
-            <li><i class="fa-solid fa-house-user"></i><a href="#">Dashboard</a></li><br>
-            <li><i class="fa-solid fa-cart-shopping"></i><a href="#">Cart</a></li><br>
-            <li><i class="fa-solid fa-calendar-check"></i><a href="#">Book cylinder</a><li padding-right:10px;><?php getWeight();?></li></li><br> 
-            <li><i class="fa-solid fa-user"></i><a href="#">My account</a></li><br>
+            <li><i class="fa-solid fa-house-user"></i><a href="index.php">Dashboard</a></li><br>
+            <li><i class="fa-solid fa-cart-shopping"></i><a href="cart.php">Cart</a></li><br>
+            <li><i class="fa-solid fa-calendar-check"></i><a href="allgases.php">Book cylinder</a><li padding-right:10px;><?php getWeight(); ?></li></li><br> 
+            <li><i class="fa-solid fa-user"></i><a href="customer_account.php">My account</a></li><br>
             <li><i class="fa-solid fa-power-off"></i><a href="#">Log out</a></li>
 
 
@@ -69,6 +69,7 @@
             <?php
             display_index();
             ?>
+            <?php categorize_weight();?>
 
 
          </div>

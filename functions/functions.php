@@ -21,8 +21,9 @@ function getWeight() //Getting the category straight from the database
         $cylinder_weight = $weight['cylinder_weight'];
 
 
-        echo "<li><a href= 'index.php'>$cylinder_weight</a></li>";
-
+        echo "<li><a href= 'index.php?weight=$weight_id'>$cylinder_weight</a></li>";//the link has the index page, gets the isset variable from function display
+                                                                                      //_index and finally the variable weight id receiving data from database "weight_id" from function getweight
+                                                                               //Links here pick their own id
     }
 }
 /** 
@@ -51,13 +52,10 @@ function getWeightNull()
 
 function display_index(){
 
-    if(!isset($_GET['weight'])){//if the weight is not active
-        if(!isset($_GET['company'])){//if the company of the gas is not active
+    if(!isset($_GET['weight'])){//if the weight is not active displays blank
+    if(!isset($_GET['company'])){//if the company of the gas is not active displays blank
 
     global $connection; //connection
-
-
-
     $curr = "shillings";
     $cart = "<i class='fa-solid fa-cart-shopping'></i>";
 
@@ -90,9 +88,10 @@ function display_index(){
     }
 }
 }
+/**THE FUNCTION BELOW IS NEVER CALLED ITS JUST FOR REFERENCE**/
 function display_description()
 {
-if(isset($_GET['page_id'])){ //get gas id from DB line 77
+if(isset($_GET['page_id'])){ //get gas id from DB line 70
 
     $get_id = $_GET['page_id']; //variable get method to get variable from url address bar
 
@@ -121,6 +120,53 @@ while($fetch_row=mysqli_fetch_array($display_run))
 }
 }
 }
+
+function categorize_weight(){
+
+    if(isset($_GET['weight'])){//if the weight is not active displays blank
+    $weight_id = $_GET['weight'];//we are getting the post assocaited with this weight 
+    global $connection; //connection
+    $curr = "shillings";
+    $cart = "<i class='fa-solid fa-cart-shopping'></i>";
+
+
+
+    $choose_weight ="select * from products where gas_weight='$weight_id'"; //selecting products that has the value in gas_weight table same as the weight_id valiue picked by isset
+
+    $show_weight = mysqli_query($connection,$choose_weight);
+
+    $count_weight = mysqli_num_rows($show_weight);
+
+    if($count_weight==0)
+    {
+   
+    echo "<h2 style='margin-left:500px'> The '$display_weight' you chose is not available in our records, please choose another weight </h2>";
+    }
+    
+    while($fetch_weight_row=mysqli_fetch_array($show_weight)){ //while loop to fetch the data that we need from the DB by fetching array of display run
+        //fetching the needed data from the table
+        $display_id = $fetch_weight_row['gas_id'];//id field
+        $display_name = $fetch_weight_row['gas_name'];//name field
+        $display_company = $fetch_weight_row['gas_company'];//company field
+        $display_weight = $fetch_weight_row['gas_weight'];//weight field
+        $display_price = $fetch_weight_row['gas_price'];//price field
+        $display_image = $fetch_weight_row['gas_image'];//image field
+
+        echo "<div id='dislay_onegas'>
+        <h2>$display_name</h2>
+       <img style='border:3px solid #FFE5B4; margin:30px;' src = 'images/$display_image' width='250' height='250'/>
+        <!-- we are getting the images folder and getting the images in the database saved as a local variable --> 
+        <p><b>$display_price $curr</b></p> 
+        <br>
+        <a href = 'description.php?page_id=$display_id' style='text-decoration:none; color: green'>Gas Description</a>
+         <a style='text-decoration:none; float:none;color: blue' href = 'index.php?page_id=$display_id'>$cart  Add to cart</a>  
+        </div>";
+    }
+
+    }
+}
+
+
 ?>
 
 </html>
