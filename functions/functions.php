@@ -83,7 +83,7 @@ function display_index(){
         <p><b>$display_price $curr</b></p> 
         <br>
         <a href = 'description.php?page_id=$display_id' style='text-decoration:none; color: green'>Gas Description</a>
-         <a style='text-decoration:none; float:none;color: blue' href = 'index.php?page_id=$display_id'>$cart  Add to cart</a>  
+        <a style='text-decoration:none; float:none;color: blue' href = 'index.php?page_id=$display_id'>$cart  Add to cart</a>  
         </div>";
     }
 

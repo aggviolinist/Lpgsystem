@@ -82,11 +82,18 @@
             $lpg_gas_weight = $show_gases_now['gas_weight'];
             $lpg_gas_price = $show_gases_now['gas_price'];
             $lpg_gas_description = $show_gases_now['gas_description'];
+            $lpg_gas_image = $show_gases_now['gas_image'];
 
 
 
             echo "<div id='dislay_onegas'>
-            
+            <h2>$lpg_gas_name</h2>
+            <img style='border:3px solid #FFE5B4; margin:30px;' src = 'images/$lpg_gas_image' width='250' height='250'/>
+            <!-- we are getting the images folder and getting the images in the database saved as a local variable --> 
+            <p><b>$lpg_gas_price $curr</b></p> 
+            <br>
+            <a href = 'description.php?page_id=$lpg_gas_id' style='text-decoration:none; color: green'>Gas Description</a>
+            <a style='text-decoration:none; float:none;color: blue' href = 'index.php?page_id=$lpg_gas_id'>$cart  Add to cart</a>  
             
             
             
