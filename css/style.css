@@ -131,7 +131,7 @@ body /*body is an element of the html tag*/
 }
 #menu a:hover
 {
-    color:chartreuse;font-weight: bolder/*how thick or thin characters in text should be displayed*/;
+    color:chartreuse;/*font-weight: bolder//how thick or thin characters in text should be displayed*/;
     text-decoration: underline;
 }
 
