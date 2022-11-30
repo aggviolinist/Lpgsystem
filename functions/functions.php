@@ -16,7 +16,7 @@ if(mysqli_connect_errno()) //default function if there is an error record
 function getWeight() //Getting the category straight from the database
 {
     global $connection;
-    $get_weight = "select * from weight"; //sqlquerry
+    $get_weight = "select * from weight"; //select sqlquerry
 
     $run_weight = mysqli_query($connection,$get_weight); //running querry
 

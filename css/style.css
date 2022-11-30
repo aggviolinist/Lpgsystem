@@ -57,8 +57,8 @@ body /*body is an element of the html tag*/
     float: none;
     height: 250px;
     width: 200px;
-    padding-left: 0px;
-    margin-left: 0px;
+    padding-left: 1250px;
+    margin-left: 800px;
 }
 #welcome
 {
@@ -66,13 +66,13 @@ body /*body is an element of the html tag*/
 }
 .content_wrapper
 {
-    width: 800px;   
+    width: 2000px;   
     margin: auto;
     background: #ADD8E6;
 }
 #content_area
 {
-    width: 500px;
+    width: 2000px;
     height: 1700px;    
     background: #ADD8E6;
     text-align: top;

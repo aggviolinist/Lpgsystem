@@ -1,7 +1,7 @@
 <DOCTYPE html>
  <?php
  include("functions/functions.php"); //includes specific folders and files into html
-
+ $connection=mysqli_connect("localhost","root","","LPGSYSTEM");
  //ini_set("display_errors","1");
  //ini_set("display_startup_errors","1");
  //error_reporting(E_ALL);
@@ -71,9 +71,8 @@
             $curr = "shillings";
             $cart = "<i class='fa-solid fa-cart-shopping'></i>";
         
-           $get_gases = "select * products ";
+           $get_gases = "select * from products ";
            $show_gases = mysqli_query($connection,$get_gases);
-
            while($show_gases_now=mysqli_fetch_array($show_gases))
            {
             $lpg_gas_id = $show_gases_now['gas_id'];
