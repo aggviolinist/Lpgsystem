@@ -7,6 +7,11 @@
 <?php
 //Connection with Database
 $connection=mysqli_connect("localhost","root","","LPGSYSTEM"); //servername,username,password,DBname
+if(mysqli_connect_errno()) //default function if there is an error record
+{
+    echo "No connection to the Database:".mysqli_connect_error(); //if there is an errorr or connection wasnt established with the database 
+
+}
 
 function getWeight() //Getting the category straight from the database
 {
@@ -136,11 +141,12 @@ function categorize_weight(){
     $show_weight = mysqli_query($connection,$choose_weight);
 
     $count_weight = mysqli_num_rows($show_weight);
+    
 
     if($count_weight==0)
     {
    
-    echo "<h2 style='margin-left:500px'> The '$display_weight' you chose is not available in our records, please choose another weight </h2>";
+    echo "<h2 style='margin-left:500px'> The weight you chose is not available in our records, please choose another weight </h2>";
     }
     
     while($fetch_weight_row=mysqli_fetch_array($show_weight)){ //while loop to fetch the data that we need from the DB by fetching array of display run
