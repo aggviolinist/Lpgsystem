@@ -85,7 +85,12 @@
 
 
 
-            echo 
+            echo "<div id='dislay_onegas'>
+            
+            
+            
+            
+            </div>";
 
 
 

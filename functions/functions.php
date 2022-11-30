@@ -63,9 +63,6 @@ function display_index(){
     global $connection; //connection
     $curr = "shillings";
     $cart = "<i class='fa-solid fa-cart-shopping'></i>";
-
-
-
     $display ="select * from products order by RAND() LIMIT 0,8"; //selecting 6 products to randomly show on the home page
 
     $display_run = mysqli_query($connection,$display);
