@@ -67,6 +67,10 @@
         <div id= "content_area" ><!--content area div -->
         <div id="display"> <!--calling the display function --->
            <?php
+            global $connection; //connection
+            $curr = "shillings";
+            $cart = "<i class='fa-solid fa-cart-shopping'></i>";
+        
            $get_gases = "select * products ";
            $show_gases = mysqli_query($connection,$get_gases);
 
@@ -78,6 +82,13 @@
             $lpg_gas_weight = $show_gases_now['gas_weight'];
             $lpg_gas_price = $show_gases_now['gas_price'];
             $lpg_gas_description = $show_gases_now['gas_description'];
+
+
+
+            echo 
+
+
+
            }
 
 
