@@ -123,6 +123,17 @@ function cart()
 
         $run_cart = mysqli_query($connection,$check_if_gas_exists);
 
+        if(mysqli_num_rows($run_cart)>0)//number of gases or records in the table is greater than 0, refresh the page and do nothing
+        {
+            echo "";
+
+        }
+        else  //if the table is empty then insert a record of a gas
+        {
+            $insert_gas = "insert into cart(cylinder_id,ip_address) values('$get_id','$ip')";
+
+        }
+
 
     }
 }
