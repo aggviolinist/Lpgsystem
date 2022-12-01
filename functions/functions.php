@@ -119,7 +119,7 @@ function cart()
         $ip = getIP(); //saved the above ip function in a local variable
         $get_id = $_GET['add_to_cart'];//this get method has a value and it transfers it to get_id
 
-        $check_if_gas_exists = "select * from cart where ip_address='$ip' AND cylinder_id='$get_id'";//statement to avoid duplication 
+        $check_if_gas_exists = "select * from cart where ip_address='$ip' AND cylinder_id='$get_id'";//statement to avoid duplication coz there is another record
 
         $run_cart = mysqli_query($connection,$check_if_gas_exists);
 
@@ -131,6 +131,11 @@ function cart()
         else  //if the table is empty then insert a record of a gas
         {
             $insert_gas = "insert into cart(cylinder_id,ip_address) values('$get_id','$ip')";
+            $run_insert = mysqli_query($connection,$insert_gas); //running the select query
+
+            echo "<script>window.open('index.php','_self')</script>";//refresh the page and go back to the index.php
+
+
 
         }
 

@@ -60,6 +60,9 @@
 
         </div>
         <div id= "content_area" ><!--content area div -->
+        <?php
+        cart();
+        ?>
         <div id="display"> <!--calling the display function --->
         <?php 
         //echo $ip = getIP()
