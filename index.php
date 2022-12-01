@@ -61,6 +61,10 @@
         </div>
         <div id= "content_area" ><!--content area div -->
         <div id="display"> <!--calling the display function --->
+        <?php 
+        //echo $ip = getIP()
+        ?>
+
             <?php
             display_index();
             ?>

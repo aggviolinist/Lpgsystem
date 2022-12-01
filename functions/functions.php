@@ -83,13 +83,43 @@ function display_index(){
         <p><b>$display_price $curr</b></p> 
         <br>
         <a href = 'description.php?page_id=$display_id' style='text-decoration:none; color: green'>Gas Description</a>
-        <a style='text-decoration:none; float:none;color: blue' href = 'index.php?page_id=$display_id'>$cart  Add to cart</a>  
+        <a style='text-decoration:none; float:none;color: blue' href = 'index.php?add_to_cart=$display_id'>$cart  Add to cart</a>  
         </div>";
     }
 
     }
 }
 }
+//****************************php to detect ip address of user**********************************************/
+function getIP()
+{
+    $user_ip = $_SERVER['REMOTE_ADDR']; //default php function saved in loal variable
+
+    if (!empty($_SERVER['HTTP_CLIENT_IP']))
+    {
+        $user_ip = $_SERVER['HTTP_CLIENT_IP'];
+    }
+    elseif(!empty($_SERVER['HTTP_X_FORWARDED FOR']))
+    {
+        $user_ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+    }
+    return $user_ip;
+}
+
+
+//****************************php to detect ip address of user**********************************************/
+
+function cart()
+{
+    if(isset($_GET['add_to_cart']))
+    {
+        //php to get cart
+        
+
+    }
+}
+
+
 /**THE FUNCTION BELOW IS NEVER CALLED ITS JUST FOR REFERENCE**/
 function display_description()
 {
@@ -169,9 +199,7 @@ function categorize_weight(){
     }
 }
 
-
 ?>
-
 </html>
 </Doctype
 
