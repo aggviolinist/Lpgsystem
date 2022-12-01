@@ -28,7 +28,7 @@
     <li><a href="signup.php">Sign up</a></li>
 </ul>
 <div id="form">
-    <form method="get" action="gas.php" enctype="mutlipart/form-data"><!--Multitype  used when getting images from DB-->
+    <form method="get" action="search_gas.php" enctype="mutlipart/form-data"><!--Multitype  used when getting images from DB-->
     <input style= 'margin-left:220px;' type="text" name="user_text" placeholder="what are you looking for?"/>
     <input type="submit" name="search" value="find gas cylinder" />
     </form> 
@@ -53,15 +53,10 @@
             <li><i class="fa-solid fa-calendar-check"></i><a href="allgases.php">Book cylinder</a><li padding-right:10px;><?php getWeight(); ?></li></li><br> 
             <li><i class="fa-solid fa-user"></i><a href="customer_account.php">My account</a></li><br>
             <li><i class="fa-solid fa-power-off"></i><a href="#">Log out</a></li>
-
-
-        
+       
         </ul>
-
         
         </div>
-
-
 
         </div>
         <div id= "content_area" ><!--content area div -->
@@ -70,20 +65,11 @@
             display_index();
             ?>
             <?php categorize_weight();?>
-
-
          </div>
-
-
-
         </div> 
 
       </div>
          <div id ="footer" style=padding-top:30px;>Kelvin Mulandi &copy; All Rights Reserved</div> <!--footer div -->
-
-
-
-
 
 </body>
 

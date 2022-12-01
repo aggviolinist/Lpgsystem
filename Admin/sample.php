@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-include("functions/functions.php");
+include("functions/functions.php"); //this page is just a test page not called on the index page
 
 ?> 
 

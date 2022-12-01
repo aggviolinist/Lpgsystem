@@ -24,7 +24,7 @@
     <li><a href="#">Sign up</a></li>
 </ul>
 <div id="form">
-    <form method="get" action="gas.php" enctype="mutlipart/form-data"><!--Multitype  used when getting images from DB-->
+    <form method="get" action="search_gas.php" enctype="mutlipart/form-data"><!--Multitype  used when getting images from DB-->
     <input style= 'margin-left:220px;' type="text" name="user_text" placeholder="what are you looking for?"/>
     <input type="submit" name="search" value="find gas cylinder" />
     </form> 
@@ -37,8 +37,6 @@
           Welcome User!
           </span>
           <i style='padding:18px;'class="fa-solid fa-cart-shopping"></i><a style='text-decoration:none;color:blue' href="cart.php">My Cart</a>
-
-
         </div>
 
         <div id="sidebar">  <!--side div -->
@@ -46,19 +44,11 @@
             <ul id="siddy">
             <li><i class="fa-solid fa-house-user"></i><a href="#">Dashboard</a></li><br>
             <li><i class="fa-solid fa-cart-shopping"></i><a href="#">Cart</a></li><br>
-            <li><i class="fa-solid fa-calendar-check"></i><a href="#">Book cylinder</a><li padding-right:10px;><?php getCategory();?></li></li><br> 
+            <li><i class="fa-solid fa-calendar-check"></i><a href="#">Book cylinder</a><li padding-right:10px;><?php getWeight();?></li></li><br> 
             <li><i class="fa-solid fa-user"></i><a href="#">My account</a></li><br>
-            <li><i class="fa-solid fa-power-off"></i><a href="#">Log out</a></li>
-
-
-        
-        </ul>
-
-        
+            <li><i class="fa-solid fa-power-off"></i><a href="#">Log out</a></li>        
+        </ul>        
         </div>
-
-
-
         </div>
         <div id= "content_area" ><!--content area div -->
         <div id="display"> <!--calling the display function --->
@@ -95,29 +85,15 @@
                      <a style='text-decoration:none; float:none;color: blue' href = 'index.php?page_id=$display_id'>$cart  Add to cart</a>  
                     </div>";
             
+            }           
             }
-            
-            
-            
-            }
-
-
-            
+           
             ?>
-
-
          </div>
-
-
-
         </div> 
 
       </div>
          <div style=''id ="footer" style=padding-top:0px;>Kelvin Mulandi &copy; All Rights Reserved</div> <!--footer div -->
-
-
-
-
 
 </body>
 
