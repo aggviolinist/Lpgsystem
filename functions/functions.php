@@ -111,10 +111,18 @@ function getIP()
 
 function cart()
 {
-    if(isset($_GET['add_to_cart']))
+    if(isset($_GET['add_to_cart']))//once a person clicks the add_to_cart button brings specific product id
     {
         //php to get cart
-        
+        global $connection;
+
+        $ip = getIP(); //saved the above ip function in a local variable
+        $get_id = $_GET['add_to_cart'];//this get method has a value and it transfers it to get_id
+
+        $check_if_gas_exists = "select * from cart where ip_address='$ip' AND cylinder_id='$get_id'";//statement to avoid duplication 
+
+        $run_cart = mysqli_query($connection,$check_if_gas_exists);
+
 
     }
 }
@@ -167,7 +175,7 @@ function categorize_weight(){
 
     $show_weight = mysqli_query($connection,$choose_weight);
 
-    $count_weight = mysqli_num_rows($show_weight);
+    $count_weight = mysqli_num_rows($show_weight);//counts number of rows in table
     
 
     if($count_weight==0)
