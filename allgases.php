@@ -40,7 +40,7 @@
           <span style="float:left; text-align: center; font-size: 18px; padding:5px; line-height:40px">
           Welcome User!
           </span>
-          <i style='padding:18px;'class="fa-solid fa-cart-shopping"></i><a style='text-decoration:none;color:blue' href="cart.php">My Cart</a>
+          <i style='padding:18px;'class="fa-solid fa-cart-shopping"></i><a style='text-decoration:none;color:blue' href="mycart.php">My Cart</a>
 
         </div>
 

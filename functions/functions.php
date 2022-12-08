@@ -108,10 +108,10 @@ function getIP()
 
 
 //****************************php to detect ip address of user**********************************************/
-
+//**********************************************Shoppping Cart********************************************/
 function cart()
 {
-    if(isset($_GET['add_to_cart']))//once a person clicks the add_to_cart button brings specific product id
+    if(isset($_GET['add_to_cart']))//once a person clicks the add_to_cart button brings specific product id line 86.......
     {
         //php to get cart
         global $connection;
@@ -134,15 +134,10 @@ function cart()
             $run_insert = mysqli_query($connection,$insert_gas); //running the select query
 
             echo "<script>window.open('index.php','_self')</script>";//refresh the page and go back to the index.php
-
-
-
         }
-
-
     }
 }
-
+/**********************************************FIN**********************************************************************/
 
 /**THE FUNCTION BELOW IS NEVER CALLED ITS JUST FOR REFERENCE**/
 function display_description()
@@ -176,7 +171,7 @@ while($fetch_row=mysqli_fetch_array($display_run))
 }
 }
 }
-
+/************************Function to choose a weight and if not available to display to user****************************/
 function categorize_weight(){
 
     if(isset($_GET['weight'])){//if the weight is not active displays blank
@@ -222,6 +217,48 @@ function categorize_weight(){
 
     }
 }
+/****************************************FIN******************************************************************************************* */
+/**********************************************Getting the total items in the cart*************************************************** */
+function total_in_the_cart()
+{
+    if(isset($_GET['add_cart']))//getting active url variable from the html
+    {
+        global $connection;
+
+        $ip = getIP();
+
+        $get_gas = "select * from cart where ip_address='$ip'";
+        $run_cart = mysql_query($connection,$get_gas);
+
+        $count_cart = mysqli_num_rows($run_cart);
+
+    
+    }
+    else
+    {
+        global $connection;
+        $ip = getIP();
+
+        $get_gas = "select * from cart where ip_address='$ip'";
+
+        $run_cart = mysqli_query($connection,$get_gas);
+
+        $count_cart = mysqli_num_rows($run_cart);
+
+    }
+     echo $count_cart;
+
+}
+
+
+
+/****************************************************************FIN********************************************************************/
+
+
+
+
+
+
 
 ?>
 </html>

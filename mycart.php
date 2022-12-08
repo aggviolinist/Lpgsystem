@@ -23,7 +23,7 @@
 <ul id="menu">
     <li><a href="index.php">Home</a></li>
     <li><a href="allgases.php">Book Cylinder</a></li>
-    <li><a href="mycart.php">Cart</a></li>
+    <li><a href="cart.php">Cart</a></li>
     <li><a href="login.php">Log in</a></li>
     <li><a href="signup.php">Sign up</a></li>
 </ul>
@@ -37,13 +37,15 @@
 
      <div class="content_wrapper">
      <?php
-        cart();
+        //total_in_the_cart();
     ?>
         <div style="width: 800px; height: 40px;background-color: lawngreen; padding-left: 700px; margin:right:100px; margin-left:250px;"><!--shopping cart -->
           <span style="float:left; text-align: center; font-size: 18px; padding:5px; line-height:40px">
           Welcome User!
           </span>
-          <i style='padding:18px;'class="fa-solid fa-cart-shopping"></i><a style='text-decoration:none;color:blue' href="mycart.php">My Cart</a>
+          <i style='padding:18px;'class="fa-solid fa-cart-shopping"></i><a style='text-decoration:none;color:blue' href="cart.php">My Cart has <?php
+        total_in_the_cart();
+    ?> gases</a>
 
 
         </div>
@@ -52,7 +54,7 @@
         <div>
             <ul id="siddy">
             <li><i class="fa-solid fa-house-user"></i><a href="index.php">Dashboard</a></li><br>
-            <li><i class="fa-solid fa-cart-shopping"></i><a href="mycart.php">Cart</a></li><br>
+            <li><i class="fa-solid fa-cart-shopping"></i><a href="cart.php">Cart</a></li><br>
             <li><i class="fa-solid fa-calendar-check"></i><a href="allgases.php">Book cylinder</a><li padding-right:10px;><?php getWeight(); ?></li></li><br> 
             <li><i class="fa-solid fa-user"></i><a href="customer_account.php">My account</a></li><br>
             <li><i class="fa-solid fa-power-off"></i><a href="#">Log out</a></li>
@@ -70,7 +72,7 @@
         ?>
 
             <?php
-            display_index();
+            //display_index();
             ?>
             <?php categorize_weight();?>
          </div>
