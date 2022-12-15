@@ -67,7 +67,7 @@
         <div id= "content_area" ><!--content area div -->
 
         <form action="" method="post" enctype="multipart/form-data">
-            <table align="center" width="1600" bgcolor="white">
+            <table align="center" width="1600" bgcolor="#ADD8E6">
             <tr align="right">
                 
                 <th><i class="fa-solid fa-trash" style=padding:10px></i>Remove from cart</th>
@@ -80,31 +80,70 @@
 
             $ip = getIP();
 
-            $total_cart = "select * from cart where ip_addresses='$ip'";
+            $total_cart = "select * from cart where ip_address='$ip'";
 
             $run_total_cart = mysqli_query($connection,$total_cart);
 
-            while($fetch_cart = mysqli_fetch_array($connection,$run_total_cart))
+            while($fetch_cart = mysqli_fetch_array($run_total_cart))
             {
                 $display_cylinderID = $fetch_cart['cylinder_id'];
 
                 $select_price = "select * from products where gas_id = '$display_cylinderID'";
                 $run_fetch_price = mysqli_query($connection,$select_price);
 
-                while($fetch_content = mysqli_fetch_array($connection,$run_fetch_price))
+                while($fetch_content = mysqli_fetch_array($run_fetch_price))
                 {
                     $all_gas_prices = array($fetch_content['gas_price']);
                     $run_all_gas_prices = array_sum($all_gas_prices);
                     $total_prices  = $total+=$run_all_gas_prices;
 
-                    $get_gas_name = $fetch_content['']
-
-                
-                }
-            }
-            echo $total_prices;
+                    $get_gas_name = $fetch_content['gas_name'];
+                    $get_individual_gas_cylinder_price = $fetch_content['gas_price'];
+                    $get_gas_image = $fetch_content['gas_image'];
+            //echo $total_prices;
 
             ?>
+
+            <tr align="right">
+                <td><input type="checkbox" name="remove[]"></td>
+                <td><?php echo $get_gas_name?><br><img src = "images/<?php echo $get_gas_image;?>" width="100" height="100"/>
+            </td>
+            <td><input type="button" size="3" onclick="decrementValue()" value="-"/>
+                <input type="text" name="quantity" value="1" maxlength="2" max ="10" size= "1" id="number" />
+                <input type="button" onclick="incrementValue()" value="+"/>
+            </td>
+              
+            <script type="text/javascript">
+                    function incrementValue()
+                    {
+                        var value = parseInt(document.getElementById('number').value,10);
+                        value = isNaN(value) ? 0 : value;//NaN function checks if the value is a number
+                        if(value<10)
+                        {
+                            value ++;
+                            document.getElementById('number').value = value;
+                        }
+                    }
+                    function decrementValue()
+                    {
+                        var value = parseInt(document.getElementById('number').value, 10);// returns an Element object representing the element whose id property matches the specified string.
+                        value = isNaN(value) ? 0 : value;
+
+                        if(value>1)
+                        {
+                            value --;
+                            document.getElementById('number').value = value;
+                        }
+                    }
+                </script>
+            <td><?php $currency = " shillings"; //variable
+            echo $get_individual_gas_cylinder_price . $currency;?></td>
+            
+            </tr>
+            <?php 
+            }//closing the while loop inside the table
+        }//closing the while loop inside the table
+        ?>
             </table>
         </form>
       
