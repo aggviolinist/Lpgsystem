@@ -219,7 +219,7 @@ function categorize_weight(){
 }
 /****************************************FIN******************************************************************************************* */
 /**********************************************Getting the total items in the cart*************************************************** */
-function total_in_the_cart()
+function total_gas_in_the_cart()
 {
     if(isset($_GET['add_cart']))//getting active url variable from the html
     {
@@ -253,11 +253,44 @@ function total_in_the_cart()
 
 
 /****************************************************************FIN********************************************************************/
+/******************************************************Total price in the cart****************************************************** */
+
+function total_sum_in_cart()
+{
+    $total_prices = 0; //initiating the price to 0.
+    global $connection;
+     $ip = getIP();
+
+     $total_cart = "select * from cart where ip_address = '$ip'";//querry to select the ip on the cart table
+
+     $run_total_cart = mysqli_query($connection,$total_cart);
+
+     while($fetch_cart=mysqli_fetch_array($run_total_cart))//there are many ip addresses selected, so this while loop fetches each one by one ,being specific
+
+     {
+        $display_cylinderID = $fetch_cart['cylinder_id']; //we need id from the table detected using the while loop
+
+        $fetch_price = "select * from products where gas_id = '$display_cylinderID' "; //selecting from another table!!!!!!!!!!!!!!!So we are matching the id to the price on products table //taking data from 2 tables
+        $run_fetch_price = mysqli_query($connection,$fetch_price);
+        
+        //$execute_run_fetch_price = mysqli_run_fetch_price($run_fetch_price);
+        while($execute_run_fetch_price=mysqli_fetch_array($run_fetch_price))
+        {
+            
+           /******$gas_price = fetch_gas_price['gas_price']; *****/
+           //the prices of the gases are in one array so we'll be selecting each one by one 1500,1200,1000
+           $all_gas_prices = array($execute_run_fetch_price['gas_price']);//all gas prices are in one array so easily accessed.
+           $sum_all_gas_prices = array_sum($all_gas_prices);//array_sum is a function that finds the sum of all the array components
 
 
+           $total_prices+=$sum_all_gas_prices;
 
 
+        }
 
+     }
+     echo $total_prices;
+}
 
 
 ?>

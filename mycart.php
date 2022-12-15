@@ -43,9 +43,9 @@
           <span style="float:left; text-align: center; font-size: 18px; padding:5px; line-height:40px">
           Welcome User!
           </span>
-          <i style='padding:18px;'class="fa-solid fa-cart-shopping"></i><a style='text-decoration:none;color:blue' href="cart.php">My Cart has <?php
-        total_in_the_cart();
-    ?> gases</a>
+          <i style='padding:18px;'class="fa-solid fa-cart-shopping"></i><a style='text-decoration:none;color:blue' href="cart.php">Cart has <?php
+        total_gas_in_the_cart();?>gases </a> 
+        <span>Please pay: <?php total_sum_in_cart(); ?> Shillings</span>
 
 
         </div>
@@ -65,6 +65,48 @@
 
         </div>
         <div id= "content_area" ><!--content area div -->
+
+        <form action="" method="post" enctype="multipart/form-data">
+            <table align="center" width="1600" bgcolor="white">
+            <tr align="right">
+                
+                <th><i class="fa-solid fa-trash" style=padding:10px></i>Remove from cart</th>
+                <th>Gas cylinder(s)</th>
+                <th>Quantity</th>
+                <th><i class="fa-thin fa-square-dollar"></i>Total price</th>
+            </tr>
+            <?php
+            $total = 0;
+
+            $ip = getIP();
+
+            $total_cart = "select * from cart where ip_addresses='$ip'";
+
+            $run_total_cart = mysqli_query($connection,$total_cart);
+
+            while($fetch_cart = mysqli_fetch_array($connection,$run_total_cart))
+            {
+                $display_cylinderID = $fetch_cart['cylinder_id'];
+
+                $select_price = "select * from products where gas_id = '$display_cylinderID'";
+                $run_fetch_price = mysqli_query($connection,$select_price);
+
+                while($fetch_content = mysqli_fetch_array($connection,$run_fetch_price))
+                {
+                    $all_gas_prices = array($fetch_content['gas_price']);
+                    $run_all_gas_prices = array_sum($all_gas_prices);
+                    $total_prices  = $total+=$run_all_gas_prices;
+
+                    $get_gas_name = $fetch_content['']
+
+                
+                }
+            }
+            echo $total_prices;
+
+            ?>
+            </table>
+        </form>
       
         <div id="display"> <!--calling the display function --->
         <?php 

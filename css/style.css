@@ -85,6 +85,7 @@ body /*body is an element of the html tag*/
     width: 300px;  
     background: #A020F0;
     float: none;
+    
 }
 #footer
 {
@@ -95,21 +96,19 @@ body /*body is an element of the html tag*/
     position: relative;
     padding-bottom: 0px;
 
-    
-
 }
 .menubar
 {
     width: 1500px;
     height: 50px;
     background:#F0F0F0;
-    color: black;
+   
      
 }
 #menu
 {
-    padding: 0;
-    margin: 0;
+    padding: 0px;
+    margin: 0px;
     line-height: 50px;
     float: left;
 
