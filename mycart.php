@@ -73,7 +73,7 @@
                 <th><i class="fa-solid fa-trash" style=padding:10px></i>Remove from cart</th>
                 <th>Gas cylinder(s)</th>
                 <th>Quantity</th>
-                <th><i class="fa-thin fa-square-dollar"></i>Total price</th>
+                <th><i class="fa-thin fa-square-dollar" style=padding:5x></i>Total price</th>
             </tr>
             <?php
             $total = 0;
@@ -112,12 +112,23 @@
                 <input type="text" name="quantity" value="1" maxlength="2" max ="10" size= "1" id="number" />
                 <input type="button" onclick="incrementValue()" value="+"/>
             </td>
+
+           
               
-            <script type="text/javascript">
+            <td><?php $currency = " shillings"; //variable
+            echo $get_individual_gas_cylinder_price . $currency;?></td>
+            
+            </tr>
+            <?php 
+            }//closing the while loop inside the table           
+        }//closing the while loop inside the table
+        ?>
+         <script type="text/javascript">
+
                     function incrementValue()
                     {
                         var value = parseInt(document.getElementById('number').value,10);
-                        value = isNaN(value) ? 0 : value;//NaN function checks if the value is a number
+                        value = isNaN(value) ? 0 : value;//NaN function checks if the value is not a number
                         if(value<10)
                         {
                             value ++;
@@ -136,17 +147,19 @@
                         }
                     }
                 </script>
-            <td><?php $currency = " shillings"; //variable
-            echo $get_individual_gas_cylinder_price . $currency;?></td>
-            
+        <!--table for total price colspan is for spacing -->
+           <tr align="right">
+                <td colspan="3"><b>Total:</b></td>
+                <td><b><?php echo $total .$currency;?></b></td>
             </tr>
-            <?php 
-            }//closing the while loop inside the table
-        }//closing the while loop inside the table
-        ?>
+            <!-- table for updating the cart -->
+            <tr align ="center">
+                <td colspan="2"><input type="submit" name="update_cart" value=<i class='fa-solid fa-house-user'></i>/></td> <!--table row -->
+                <td><input type="submit" name="back_shopping" value="Back to Shopping"></td>
+                <td><button><a href="checkout.php">Check Out</a></button></td>
+            </tr>
             </table>
-        </form>
-      
+        </form>      
         <div id="display"> <!--calling the display function --->
         <?php 
         //echo $ip = getIP()

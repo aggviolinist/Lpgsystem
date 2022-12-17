@@ -43,11 +43,11 @@ $connection=mysqli_connect("localhost","root","","LPGSYSTEM");
                                          
                          while($category=mysqli_fetch_array($run_category)) //retrieves all records in the database, so we are selectig the database and running it
                         {
-                         $category_id = $category['category_id'];
-                         $category_name = $category['category_name'];
+                         $weight_id = $category['weight_id'];
+                         $cylinder_weight = $category['cylinder_weight'];
                                   
                                   
-                         echo "<option value='$category_id'>$category_name</option>";
+                         echo "<option value='$weight_id'>$cylinder_weight</option>";
                                   
                           }
                          
