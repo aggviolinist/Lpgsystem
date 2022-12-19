@@ -70,10 +70,10 @@
             <table align="center" width="1600" bgcolor="#ADD8E6">
             <tr align="right">
                 
-                <th><i class="fa-solid fa-trash" style=padding:10px></i>Remove from cart</th>
+                <th><i class="fa-solid fa-trash" style=padding:10px></i>Remove from cart</th> <!--th is a table header -->
                 <th>Gas cylinder(s)</th>
                 <th>Quantity</th>
-                <th><i class="fa-thin fa-square-dollar" style=padding:5x></i>Total price</th>
+                <th><i class="fa-regular fa-sack-dollar"></i>Total price</th>
             </tr>
             <?php
             $total = 0;
@@ -101,9 +101,7 @@
                     $get_individual_gas_cylinder_price = $fetch_content['gas_price'];
                     $get_gas_image = $fetch_content['gas_image'];
             //echo $total_prices;
-
             ?>
-
             <tr align="right">
                 <td><input type="checkbox" name="remove[]"></td>
                 <td><?php echo $get_gas_name?><br><img src = "images/<?php echo $get_gas_image;?>" width="100" height="100"/>
@@ -146,7 +144,8 @@
                             document.getElementById('number').value = value;
                         }
                     }
-                </script>
+
+        </script>
         <!--table for total price colspan is for spacing -->
            <tr align="right">
                 <td colspan="3"><b>Total:</b></td>
@@ -154,9 +153,9 @@
             </tr>
             <!-- table for updating the cart -->
             <tr align ="center">
-                <td colspan="2"><input type="submit" name="update_cart" value=<i class='fa-solid fa-house-user'></i>/></td> <!--table row -->
-                <td><input type="submit" name="back_shopping" value="Back to Shopping"></td>
-                <td><button><a href="checkout.php">Check Out</a></button></td>
+                <td colspan="2"><br><br><br><br><br><br><input type="submit" name="update_cart" value="Update Cart"></td> <!--table row -->
+                <td style='margin-left:10px'><br><br><br><br><br><br><input type="submit" name="back_shopping" value="Back to Shopping"></td>
+                <td><br><br><br><br><br><br><a href="checkout.php" style='text-decoration:none';><i class="fa-sharp fa-solid fa-bag-shopping"></i></a><button><a href="checkout.php" style='text-decoration:none';>Check Out</a></button></td>                              
             </tr>
             </table>
         </form>      
