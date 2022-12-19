@@ -71,8 +71,8 @@
             <tr align="right">
                 
                 <th><i class="fa-solid fa-trash" style=padding:10px></i>Remove from cart</th> <!--th is a table header -->
-                <th>Gas cylinder(s)</th>
-                <th>Quantity</th>
+                <th><i class="fa-solid fa-fire-flame-simple" ></i>Gas cylinder(s)</th>
+                <th><i class="fa-solid fa-hashtag"></i>Quantity</th>
                 <th><i class="fa-solid fa-dollar-sign"></i>Total price</th>
             </tr>
             <?php
@@ -153,8 +153,8 @@
             </tr>
             <!-- table for updating the cart -->
             <tr align ="center">
-                <td colspan="2"><br><br><br><br><br><br><input type="submit" name="remove" value="Remove"></td> <!--table row -->
-                <td style='margin-left:10px'><br><br><br><br><br><br><input type="submit" name="back_shopping" value="Back to Shopping"></td>
+                <td colspan="2"><br><br><br><br><br><br><i class="fa-solid fa-trash-can"></i><input type="submit" name="remove" value="Remove"></td> <!--table row -->
+                <td style='margin-left:10px'><br><br><br><br><br><br><i class="fa-sharp fa-solid fa-rotate-left"></i><input type="submit" name="back_shopping" value="Back to Shopping"></td>
                 <td><br><br><br><br><br><br><a href="checkout.php" style='text-decoration:none;color:black'><i class="fa-solid fa-cart-shopping"></i></a><button><a href="checkout.php" style='text-decoration:none; color:black';>Check Out</a></button></td>                              
             </tr>
             </table>
