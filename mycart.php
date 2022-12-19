@@ -73,7 +73,7 @@
                 <th><i class="fa-solid fa-trash" style=padding:10px></i>Remove from cart</th> <!--th is a table header -->
                 <th>Gas cylinder(s)</th>
                 <th>Quantity</th>
-                <th><i class="fa-regular fa-sack-dollar"></i>Total price</th>
+                <th><i class="fa-solid fa-dollar-sign"></i>Total price</th>
             </tr>
             <?php
             $total = 0;
@@ -103,7 +103,7 @@
             //echo $total_prices;
             ?>
             <tr align="right">
-                <td><input type="checkbox" name="remove[]"></td>
+                <td><input type="checkbox" name="kill[]" value="<?php echo $display_cylinderID; ?>"></td> <!--delete is of an array and it passes all records to the below for each loop since they have unique ID's-->
                 <td><?php echo $get_gas_name?><br><img src = "images/<?php echo $get_gas_image;?>" width="100" height="100"/>
             </td>
             <td><input type="button" size="3" onclick="decrementValue()" value="-"/>
@@ -153,12 +153,32 @@
             </tr>
             <!-- table for updating the cart -->
             <tr align ="center">
-                <td colspan="2"><br><br><br><br><br><br><input type="submit" name="update_cart" value="Update Cart"></td> <!--table row -->
+                <td colspan="2"><br><br><br><br><br><br><input type="submit" name="remove" value="Remove"></td> <!--table row -->
                 <td style='margin-left:10px'><br><br><br><br><br><br><input type="submit" name="back_shopping" value="Back to Shopping"></td>
-                <td><br><br><br><br><br><br><a href="checkout.php" style='text-decoration:none';><i class="fa-sharp fa-solid fa-bag-shopping"></i></a><button><a href="checkout.php" style='text-decoration:none';>Check Out</a></button></td>                              
+                <td><br><br><br><br><br><br><a href="checkout.php" style='text-decoration:none;color:black'><i class="fa-solid fa-cart-shopping"></i></a><button><a href="checkout.php" style='text-decoration:none; color:black';>Check Out</a></button></td>                              
             </tr>
             </table>
-        </form>      
+        </form> 
+        <?php
+        global $connection;
+        $ip = getIP();
+        if(isset($_POST['remove']))//if the button with name "remove" is clicked in line 156, make a post 
+        {
+            foreach($_POST['kill'] as $kill_id)//loop that targets array delete[] and makes it a local variable delete_id
+            {
+
+                $delete_gas = "delete from cart where cylinder_id='$kill_id' AND ip_address='$ip'";
+                $run_delete_gas = mysqli_query($connection,$delete_gas);
+                 
+                if($run_delete_gas)
+                {
+                    echo "<script>window.open('mycart.php','_self')</script>";
+
+                }
+            }
+        }
+        ?>
+        
         <div id="display"> <!--calling the display function --->
         <?php 
         //echo $ip = getIP()
