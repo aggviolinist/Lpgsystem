@@ -1,5 +1,6 @@
 <DOCTYPE html>
  <?php
+ session_start();//for us to use session array we must start it
  include("functions/functions.php"); //includes specific folders and files into html
 
  //ini_set("display_errors","1");
@@ -107,12 +108,26 @@
                 <td><?php echo $get_gas_name?><br><img src = "images/<?php echo $get_gas_image;?>" width="100" height="100"/>
             </td>
             <td><input type="button" size="3" onclick="decrementValue()" value="-"/>
-                <input type="text" name="quantity" value="1" maxlength="2" max ="10" size= "1" id="number" />
+                <input type="text" name="quantity" value="1" maxlength="2" max ="10" size= "1" id="number" value="<?php echo $_SESSION['quantity'];?>" />
                 <input type="button" onclick="incrementValue()" value="+"/>
             </td>
 
-           
-              
+
+            <?php
+                       
+            if(isset($_POST['remove']))
+            {
+                $quantity = $_POST['quantity']; 
+                $update_quantity = "update cart set quantity='$quantity'";
+
+                $run_update_quantity = mysqli_query($connection,$update_quantity);
+
+                $_SESSION['quantity']=$quantity;//default super global array just like POST,GET,FILE,REQUEST
+
+                $total = $total*$quantity;//in PHP we can change local variables at any time.Total is the same
+
+            }
+            ?>                         
             <td><?php $currency = " shillings"; //variable
             echo $get_individual_gas_cylinder_price . $currency;?></td>
             
@@ -160,6 +175,8 @@
             </table>
         </form> 
         <?php
+         function cart_delete_update()
+         {
         global $connection;
         $ip = getIP();
         if(isset($_POST['remove']))//if the button with name "remove" is clicked in line 156, make a post 
@@ -177,6 +194,14 @@
                 }
             }
         }
+            if(isset($_POST['back_shopping']))
+            {
+                echo "<script>window.open('ineex.php','_self')</script>";
+            }
+            echo @$cart_update= cart_delete_update(); //if the function is not  active don't generate an error
+ 
+        }
+         
         ?>
         
         <div id="display"> <!--calling the display function --->

@@ -106,7 +106,6 @@ function getIP()
     return $user_ip;
 }
 
-
 //****************************php to detect ip address of user**********************************************/
 //**********************************************Shoppping Cart********************************************/
 function cart()
@@ -134,6 +133,7 @@ function cart()
             $run_insert = mysqli_query($connection,$insert_gas); //running the select query
 
             echo "<script>window.open('index.php','_self')</script>";//refresh the page and go back to the index.php
+            echo "<script>gas added successfully in cart</script>";
         }
     }
 }
@@ -179,8 +179,6 @@ function categorize_weight(){
     global $connection; //connection
     $curr = "shillings";
     $cart = "<i class='fa-solid fa-cart-shopping'></i>";
-
-
 
     $choose_weight ="select * from products where gas_weight='$weight_id'"; //selecting products that has the value in gas_weight table same as the weight_id valiue picked by isset
 
@@ -250,8 +248,6 @@ function total_gas_in_the_cart()
 
 }
 
-
-
 /****************************************************************FIN********************************************************************/
 /******************************************************Total price in the cart****************************************************** */
 
@@ -259,13 +255,13 @@ function total_sum_in_cart()
 {
     $total_prices = 0; //initiating the price to 0.
     global $connection;
-     $ip = getIP();
+    $ip = getIP();
 
-     $total_cart = "select * from cart where ip_address = '$ip'";//querry to select the ip on the cart table
+    $total_cart = "select * from cart where ip_address = '$ip'";//querry to select the ip on the cart table
 
-     $run_total_cart = mysqli_query($connection,$total_cart);
+    $run_total_cart = mysqli_query($connection,$total_cart);
 
-     while($fetch_cart=mysqli_fetch_array($run_total_cart))//there are many ip addresses selected, so this while loop fetches each one by one ,being specific
+    while($fetch_cart=mysqli_fetch_array($run_total_cart))//there are many ip addresses selected, so this while loop fetches each one by one ,being specific
 
      {
         $display_cylinderID = $fetch_cart['cylinder_id']; //we need id from the table detected using the while loop
