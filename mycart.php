@@ -1,6 +1,6 @@
 <DOCTYPE html>
  <?php
- session_start();//for us to use session array we must start it
+ //session_start();//for us to use session array we must start it
  include("functions/functions.php"); //includes specific folders and files into html
 
  //ini_set("display_errors","1");
@@ -44,7 +44,7 @@
           <span style="float:left; text-align: center; font-size: 18px; padding:5px; line-height:40px">
           Welcome User!
           </span>
-          <i style='padding:18px;'class="fa-solid fa-cart-shopping"></i><a style='text-decoration:none;color:blue' href="cart.php">Cart has <?php
+          <i style='padding:18px;'class="fa-solid fa-cart-shopping"></i><a style='text-decoration:none;color:blue' href="mycart.php">Cart has <?php
         total_gas_in_the_cart();?>gases </a> 
         <span>Please pay: <?php total_sum_in_cart(); ?> Shillings</span>
 
@@ -66,12 +66,10 @@
 
         </div>
         <div id= "content_area" ><!--content area div -->
-
         <form action="" method="post" enctype="multipart/form-data">
             <table align="center" width="1600" bgcolor="#ADD8E6">
-            <tr align="right">
-                
-                <th><i class="fa-solid fa-trash" style=padding:10px></i>Remove from cart</th> <!--th is a table header -->
+            <tr align="right">                
+                <th><i class="fa-solid fa-trash" style=padding:10px></i>Remove from cart</th> <!--th is a table heading -->
                 <th><i class="fa-solid fa-fire-flame-simple" ></i>Gas cylinder(s)</th>
                 <th><i class="fa-solid fa-hashtag"></i>Quantity</th>
                 <th><i class="fa-solid fa-dollar-sign"></i>Total price</th>
@@ -96,7 +94,7 @@
                 {
                     $all_gas_prices = array($fetch_content['gas_price']);
                     $run_all_gas_prices = array_sum($all_gas_prices);
-                    $total_prices  = $total+=$run_all_gas_prices;
+                    $total+=$run_all_gas_prices;
 
                     $get_gas_name = $fetch_content['gas_name'];
                     $get_individual_gas_cylinder_price = $fetch_content['gas_price'];
@@ -105,7 +103,7 @@
             ?>
             <tr align="right">
                 <td><input type="checkbox" name="kill[]" value="<?php echo $display_cylinderID; ?>"></td> <!--delete is of an array and it passes all records to the below for each loop since they have unique ID's-->
-                <td><?php echo $get_gas_name?><br><img src = "images/<?php echo $get_gas_image;?>" width="100" height="100"/>
+                <td><?php echo $get_gas_name; ?><br><img src = "images/<?php echo $get_gas_image;?>" width="100" height="100"/>
             </td>
             <td><input type="button" size="3" onclick="decrementValue()" value="-"/>
                 <input type="text" name="quantity" value="1" maxlength="2" max ="10" size= "1" id="number" value="<?php echo $_SESSION['quantity'];?>" />
@@ -114,6 +112,7 @@
 
 
             <?php
+            /** 
                        
             if(isset($_POST['remove']))
             {
@@ -127,6 +126,7 @@
                 $total = $total*$quantity;//in PHP we can change local variables at any time.Total is the same
 
             }
+            **/
             ?>                         
             <td><?php $currency = " shillings"; //variable
             echo $get_individual_gas_cylinder_price . $currency;?></td>
@@ -164,43 +164,47 @@
         <!--table for total price colspan is for spacing -->
            <tr align="right">
                 <td colspan="3"><b>Total:</b></td>
-                <td><b><?php echo $total .$currency;?></b></td>
+                <td><b><?php
+                $currency = " shillings";
+                echo $total .$currency;
+                ?></b></td>
             </tr>
             <!-- table for updating the cart -->
             <tr align ="center">
                 <td colspan="2"><br><br><br><br><br><br><i class="fa-solid fa-trash-can"></i><input type="submit" name="remove" value="Remove"></td> <!--table row -->
+                <td><br><br><br><br><br><br><input type="submit" name="update_quantity" value="update quantity"></td>
                 <td style='margin-left:10px'><br><br><br><br><br><br><i class="fa-sharp fa-solid fa-rotate-left"></i><input type="submit" name="back_shopping" value="Back to Shopping"></td>
                 <td><br><br><br><br><br><br><a href="checkout.php" style='text-decoration:none;color:black'><i class="fa-solid fa-cart-shopping"></i></a><button><a href="checkout.php" style='text-decoration:none; color:black';>Check Out</a></button></td>                              
             </tr>
             </table>
         </form> 
         <?php
-         function cart_delete_update()
-         {
+         //function cart_delete_update() had to comment this function coz it wasn't removing any item from cart
+         //{
         global $connection;
         $ip = getIP();
-        if(isset($_POST['remove']))//if the button with name "remove" is clicked in line 156, make a post 
+        if(isset($_POST['remove']))//if the button with name "remove" is clicked in line 173, make a post 
         {
-            foreach($_POST['kill'] as $kill_id)//loop that targets array delete[] and makes it a local variable delete_id
+            foreach($_POST['kill'] as $kill_id)//loop that targets array kill[] which has the gas id and passes it as a local variable kill_id
             {
-
                 $delete_gas = "delete from cart where cylinder_id='$kill_id' AND ip_address='$ip'";
                 $run_delete_gas = mysqli_query($connection,$delete_gas);
                  
                 if($run_delete_gas)
                 {
                     echo "<script>window.open('mycart.php','_self')</script>";
+                    echo "<script>'Gas deleted'</script>";
 
                 }
             }
         }
             if(isset($_POST['back_shopping']))
             {
-                echo "<script>window.open('ineex.php','_self')</script>";
+                echo "<script>window.open('index.php','_self')</script>";
             }
-            echo @$cart_update= cart_delete_update(); //if the function is not  active don't generate an error
+            //echo @$cart_update= cart_delete_update(); //if the function is not  active don't generate an error coz we are doing 2 tasks at the same time
  
-        }
+        //}
          
         ?>
         

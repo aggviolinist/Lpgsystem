@@ -129,11 +129,11 @@ function cart()
         }
         else  //if the table is empty then insert a record of a gas
         {
-            $insert_gas = "insert into cart(cylinder_id,ip_address) values('$get_id','$ip')";
+            $insert_gas = "insert ignore into cart(cylinder_id,ip_address) values('$get_id','$ip')";
             $run_insert = mysqli_query($connection,$insert_gas); //running the select query
 
-            echo "<script>window.open('index.php','_self')</script>";//refresh the page and go back to the index.php
-            echo "<script>gas added successfully in cart</script>";
+            echo "<scrip>window.open('index.php','_self')</script>";//refresh the page and go back to the index.php
+            echo '<script>alert("Gas Cylinder added successfully ")</script>';
         }
     }
 }
