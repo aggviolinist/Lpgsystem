@@ -1,6 +1,6 @@
 <DOCTYPE html>
  <?php
- //session_start();//for us to use session array we must start it
+ session_start();//for us to use session array we must start it
  include("functions/functions.php"); //includes specific folders and files into html
 
  //ini_set("display_errors","1");
@@ -44,7 +44,7 @@
           <span style="float:left; text-align: center; font-size: 18px; padding:5px; line-height:40px">
           Welcome User!
           </span>
-          <i style='padding:18px;'class="fa-solid fa-cart-shopping"></i><a style='text-decoration:none;color:blue' href="mycart.php">Cart has <?php
+          <i style='padding:18px;'class="fa-solid fa-cart-shopping"></i><a style='text-decoration:none;color:blue' href="mycart.php">Your Cart has <?php
         total_gas_in_the_cart();?>gases </a> 
         <span>Please pay: <?php total_sum_in_cart(); ?> Shillings</span>
 
@@ -60,10 +60,8 @@
             <li><i class="fa-solid fa-user"></i><a href="customer_account.php">My account</a></li><br>
             <li><i class="fa-solid fa-power-off"></i><a href="#">Log out</a></li>
        
-        </ul>
-        
+        </ul>        
         </div>
-
         </div>
         <div id= "content_area" ><!--content area div -->
         <form action="" method="post" enctype="multipart/form-data">
@@ -76,9 +74,7 @@
             </tr>
             <?php
             $total = 0;
-
             $ip = getIP();
-
             $total_cart = "select * from cart where ip_address='$ip'";
 
             $run_total_cart = mysqli_query($connection,$total_cart);
@@ -87,10 +83,10 @@
             {
                 $display_cylinderID = $fetch_cart['cylinder_id'];
 
-                $select_price = "select * from products where gas_id = '$display_cylinderID'";
-                $run_fetch_price = mysqli_query($connection,$select_price);
+                $select_all = "select * from products where gas_id = '$display_cylinderID'";
+                $run_select_all = mysqli_query($connection,$select_all);
 
-                while($fetch_content = mysqli_fetch_array($run_fetch_price))
+                while($fetch_content = mysqli_fetch_array($run_select_all))
                 {
                     $all_gas_prices = array($fetch_content['gas_price']);
                     $run_all_gas_prices = array_sum($all_gas_prices);
@@ -106,28 +102,10 @@
                 <td><?php echo $get_gas_name; ?><br><img src = "images/<?php echo $get_gas_image;?>" width="100" height="100"/>
             </td>
             <td><input type="button" size="3" onclick="decrementValue()" value="-"/>
-                <input type="text" name="quantity" value="1" maxlength="2" max ="10" size= "1" id="number" value="<?php echo $_SESSION['quantity'];?>" />
+                <input type="text" name="quantity" value="1" maxlength="2" max ="10" size= "1" id="number" value='<?php echo $_SESSION["quantity"];?>' />
                 <input type="button" onclick="incrementValue()" value="+"/>
             </td>
-
-
-            <?php
-            /** 
-                       
-            if(isset($_POST['remove']))
-            {
-                $quantity = $_POST['quantity']; 
-                $update_quantity = "update cart set quantity='$quantity'";
-
-                $run_update_quantity = mysqli_query($connection,$update_quantity);
-
-                $_SESSION['quantity']=$quantity;//default super global array just like POST,GET,FILE,REQUEST
-
-                $total = $total*$quantity;//in PHP we can change local variables at any time.Total is the same
-
-            }
-            **/
-            ?>                         
+                        
             <td><?php $currency = " shillings"; //variable
             echo $get_individual_gas_cylinder_price . $currency;?></td>
             
@@ -179,6 +157,21 @@
             </table>
         </form> 
         <?php
+            //update quantity function                             
+            if(isset($_POST['update_quantity']))
+            {
+                $quantity = $_POST['quantity']; 
+                $update_quantity = "update cart set quantity='$quantity'"; //setting the quantity to be whats in the field 
+                $run_update_quantity = mysqli_query($connection,$update_quantity);
+
+                //we use sessions here to keep or hold the value in the quantity box 
+                $_SESSION['quantity']=$quantity;//default super global array just like POST,GET,FILE,REQUEST
+
+                $total = $total*$quantity;//in PHP we can change local variables at any time.Total is the same no need to define it in this php function
+
+            }            
+            ?> 
+        <?php
          //function cart_delete_update() had to comment this function coz it wasn't removing any item from cart
          //{
         global $connection;
@@ -193,19 +186,25 @@
                 if($run_delete_gas)
                 {
                     echo "<script>window.open('mycart.php','_self')</script>";
-                    echo "<script>'Gas deleted'</script>";
+                    echo '<script>alert("Gas Cylinder deleted successfully ")</script>';
 
                 }
+                else
+                {
+                    echo '<script>alert("Gas Cylinder not deleted successfully ")</script>';
+
+                }
+               
             }
         }
             if(isset($_POST['back_shopping']))
             {
-                echo "<script>window.open('index.php','_self')</script>";
+                echo '<script>window.open("index.php","_self")</script>';
+               
             }
             //echo @$cart_update= cart_delete_update(); //if the function is not  active don't generate an error coz we are doing 2 tasks at the same time
  
-        //}
-         
+        //}         
         ?>
         
         <div id="display"> <!--calling the display function --->
@@ -224,5 +223,4 @@
          <div id ="footer" style=padding-top:30px;>Kelvin Mulandi &copy; All Rights Reserved</div> <!--footer div -->
 
 </body>
-
 </html>
