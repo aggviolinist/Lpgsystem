@@ -1,5 +1,6 @@
 <DOCTYPE html>
  <?php
+ session_start();
  include("functions/functions.php"); //includes specific folders and files into html
 
  //ini_set("display_errors","1");
@@ -24,8 +25,21 @@
     <li><a href="index.php">Home</a></li>
     <li><a href="allgases.php">Book Cylinder</a></li>
     <li><a href="mycart.php">Cart</a></li>
-    <li><a href="login.php">Log in</a></li>
-    <li><a href="signup.php">Sign up</a></li>
+    <li>   
+          <?php
+          if(!isset($_SESSION['customer_email']))
+          {
+            echo "<li><a href='checkout.php'>Log in</a></li>";
+           // echo "<a href='chekout.php'>log in</a>";
+          }
+          else
+          {
+            echo "<li><a href='logout.php'>Log out</a></li>";
+           // echo "<a href='logout.php'>log out</a>";
+          }
+          ?>
+        </li>
+    <li><a href="customer_signup.php">Sign up</a></li>
 </ul>
 <div id="form">
     <form method="get" action="search_gas.php" enctype="mutlipart/form-data"><!--Multitype  used when getting images from DB-->
@@ -55,7 +69,21 @@
             <li><i class="fa-solid fa-cart-shopping"></i><a href="mycart.php">Cart</a></li><br>
             <li><i class="fa-solid fa-calendar-check"></i><a href="allgases.php">Book cylinder</a><li padding-right:10px;><?php getWeight(); ?></li></li><br> 
             <li><i class="fa-solid fa-user"></i><a href="customer_account.php">My account</a></li><br>
-            <li><i class="fa-solid fa-power-off"></i><a href="#">Log out</a></li>
+          <div> 
+          <?php
+          if(!isset($_SESSION['customer_email']))
+          {
+            echo "<li><i class='fa-solid fa-power-off'></i><a href='checkout.php'>Log in</a></li>";
+           // echo "<a href='chekout.php'>log in</a>";
+          }
+          else
+          {
+            echo "<li><i class='fa-solid fa-power-off'></i><a href='logout.php'>Log out</a></li>";
+           // echo "<a href='logout.php'>log out</a>";
+          }
+          ?>
+        
+        </div> 
        
         </ul>
         

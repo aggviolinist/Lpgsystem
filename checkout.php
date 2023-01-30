@@ -1,6 +1,8 @@
 <DOCTYPE html>
  <?php
+ session_start();
  include("functions/functions.php"); //includes specific folders and files into html
+ //include("Admin/payment.php")
 
  //ini_set("display_errors","1");
  //ini_set("display_startup_errors","1");
@@ -53,7 +55,7 @@
             <ul id="siddy">
             <li><i class="fa-solid fa-house-user"></i><a href="index.php">Dashboard</a></li><br>
             <li><i class="fa-solid fa-cart-shopping"></i><a href="mycart.php">Cart</a></li><br>
-            <li><i class="fa-solid fa-calendar-check"></i><a href="allgases.php">Book cylinder</a><li padding-right:10px;><?php getWeight(); ?></li></li><br> 
+            <li><i class="fa-solid fa-calendar-check"></i><a href="allgases.php">Book cylinder</a><li padding-right:10px;><?php //getWeight(); ?></li></li><br> 
             <li><i class="fa-solid fa-user"></i><a href="customer_account.php">My account</a></li><br>
             <li><i class="fa-solid fa-power-off"></i><a href="#">Log out</a></li>
        
@@ -76,19 +78,12 @@
              if(!isset($_SESSION['customer_email'])) //if email is currently not registered as a session
              {
                 include("customer_login.php"); //directed to login page ...include is a function that helps us call any page or folder
-
-
              }
              else //customer is logged in
              {
-                include("payment.php"); //directed to payment page
+                include("Admin/payment.php"); //directed to payment page
              }
-
-
              ?>
-
-
-
          </div>
         </div> 
 
