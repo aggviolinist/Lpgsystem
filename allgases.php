@@ -1,7 +1,7 @@
 <DOCTYPE html>
  <?php
  include("functions/functions.php"); //includes specific folders and files into html
- $connection=mysqli_connect("localhost","root","","LPGSYSTEM");
+ $connection=mysqli_connect("localhost"," "," ","farmstore");
  //ini_set("display_errors","1");
  //ini_set("display_startup_errors","1");
  //error_reporting(E_ALL);

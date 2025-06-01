@@ -6,7 +6,7 @@
 
 <?php
 //Connection with Database
-$connection=mysqli_connect("localhost","root","","LPGSYSTEM"); //servername,username,password,DBname
+$connection=mysqli_connect("localhost"," "," ","farmstore"); //servername,username,password,DBname
 if(mysqli_connect_errno()) //default function if there is an error record
 {
     echo "No connection to the Database:".mysqli_connect_error(); //if there is an errorr or connection wasnt established with the database 

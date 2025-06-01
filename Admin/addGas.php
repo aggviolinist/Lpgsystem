@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-$connection=mysqli_connect("localhost","root","","LPGSYSTEM");
+$connection=mysqli_connect("localhost"," "," ","farmstore");
 ?> 
 
 <head>
